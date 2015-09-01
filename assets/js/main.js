@@ -10,39 +10,20 @@ $(document).ready(function(){
 	
 	$('#button-drawer').click(function(e){
 		var clicked = $(e.currentTarget);
-		var winWidth = $( window ).width();
-		var shrinkVar;
+		//var winWidth = $( window ).width();
 		clicked.removeClass('open');
-		$( mainContent ).removeClass();
-		
-		// what size is the window?
-		
-		if( winWidth <= 992 ) {
-			shrinkVar = 'shrinkHeight';
-		} else {
-			shrinkVar = 'shrinkWidth';
-		}
-		
-		// is the drawer showing or hidden?
-		
-		if (drawer.hasClass('shrinkWidth') || drawer.hasClass('shrinkHeight') || drawer.hasClass('hidden')){
+				
+		if (drawer.hasClass('hidden')){
 			
 			// drawer is hidden 
-			
-			drawer.removeClass('shrinkWidth shrinkHeight hidden');
-			if ( shrinkVar === 'shrinkHeight' ) {
-				mainContent.addClass( 'col-xs-12' );
-				console.log('make content wide');
-			} else {
-				mainContent.addClass( 'col-sm-9');
-				console.log('make content narrow');
-			}
+			drawer.removeClass('hidden');
+			mainContent.toggleClass( 'col-sm-9' );
 		} else {
 			
 			// drawer is showing
 			clicked.addClass('open');
-			mainContent.addClass( 'col-xs-12' );
-			drawer.addClass("hidden");
+			mainContent.toggleClass( 'col-sm-9' );
+			drawer.toggleClass('hidden');
 		}
 	});
 	

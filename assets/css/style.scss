@@ -166,7 +166,7 @@ header {
 		}
 	}
 	.dropdown {
-		margin: 18px 0 10px 0;
+		margin:12px 0 10px 0;
 		button {
 			background: transparent;
 			border:0;
@@ -311,6 +311,7 @@ input[type="text"].i-search {
 	margin: 10px 0;
 	box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.40);
 	border-radius: 2px;
+	overflow: hidden;
 	.sub-sec-title {
 		position: relative;
 		padding: 20px 15px;
@@ -511,7 +512,7 @@ input[type="text"].i-search {
 #col-stats,
 #main-content {
 	//@include transition(margin .3s ease-in, width .3s ease-in, padding .3s ease-in, height .3s ease-in);
-	@include transition(width 1.0s ease-in 0s, height 1.0s ease-in 2s);
+	//@include transition(width 1.0s ease-in 0s, height 1.0s ease-in 2s);
 }
 
 #main-content {

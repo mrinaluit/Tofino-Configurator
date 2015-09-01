@@ -5852,7 +5852,7 @@ header {
   header .nav-pills li a {
     border-radius: 0; }
   header .dropdown {
-    margin: 18px 0 10px 0; }
+    margin: 12px 0 10px 0; }
     header .dropdown button {
       background: transparent;
       border: 0;
@@ -5962,7 +5962,8 @@ input[type="text"].i-search {
   background: white;
   margin: 10px 0;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.4);
-  border-radius: 2px; }
+  border-radius: 2px;
+  overflow: hidden; }
   .sub-sec .sub-sec-title {
     position: relative;
     padding: 20px 15px; }
@@ -6103,11 +6104,6 @@ input[type="text"].i-search {
             background-image: url("../img/icon-now-red.png"); }
         .sub-sec#sub-sec-metrics .stat-widgets .stat-widget.red .stat-now {
           color: #F34101; }
-
-#col-stats,
-#main-content {
-  -webkit-transition: width 1s ease-in 0s, height 1s ease-in 2s;
-  transition: width 1s ease-in 0s, height 1s ease-in 2s; }
 
 #main-content {
   border-left: 1px solid #BFBFC2;
