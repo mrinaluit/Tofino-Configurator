@@ -6209,7 +6209,6 @@ input[type="text"].i-search {
         display: inline-block; }
   .main-content .view-topology {
     background: url("../img/bg-topo.jpg");
-    padding: 100px 50px;
     overflow: auto; }
   .main-content .view-map {
     min-height: 1000px;

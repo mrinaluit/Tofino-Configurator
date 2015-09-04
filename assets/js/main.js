@@ -1,5 +1,8 @@
 $(document).ready(function(){
  
+ 	// draw the topology
+ 	init();
+
 	// make popovers work
 	$('[data-toggle="popover"]').popover();
 	$('[data-toggle="tooltip"]').tooltip();

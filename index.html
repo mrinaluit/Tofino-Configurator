@@ -18,9 +18,6 @@
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 	
-	<script src="assets/go.js"></script>
-	<script src="assets/topology.js"></script>
-	
 	<link href="assets/favicon.ico" rel="shortcut icon">
 	<link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 </head>
@@ -306,18 +303,164 @@
 						<div id="view-dropdown" class="title-button dropdown">
 							<div class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
 								<span>View:</span>
-								<img class="view-icon" src="assets/img/icon-table@2x.png" width="25" alt="view inventory as table">
+								<img class="view-icon" src="assets/img/icon-topology@2x.png" width="25" alt="view inventory as topology">
 								<span class="caret"></span>
 							</div>
 							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="inventory-view-options">
 								<li id="button-view-table" data-view="view-table" data-icon="icon-table@2x.png" data-icon-width="25"><a href="#">Table</a></li>
-								<li id="button-view-topology" data-view="view-topology" data-icon="icon-topology@2x.png" data-icon-width="27" onclick="init()"><a href="#">Topology</a></li>
 								<li id="button-view-map" data-view="view-map" data-icon="icon-map@2x.png" data-icon-width="16"><a href="#">Map</a></li>
+								<li id="button-view-topology" data-view="view-topology" data-icon="icon-topology@2x.png" data-icon-width="27"><a href="#">Topology</a></li>
 							</ul>
 						</div>
 						<div id="button-gear" class="title-button"><div class="title-button-wrapper"><img src="assets/img/icon-gear.png" alt="content options menu"></div></div>
 					</div><!-- main-content-titlebar -->
-					<div class="view-table">
+					<div class="view-topology">
+					<!--	<img src="assets/img/topology-2@2x.png" width="3152" height="836" alt="inventory topology view"> -->
+						<div id="myDiagram" style="height:800px;"></div>
+						<textarea id="mySavedModel" style="display:none;">
+								{ "class": "go.GraphLinksModel",
+								  "copiesArrays": true,
+								  "copiesArrayObjects": true,
+								  "linkFromPortIdProperty": "fromPort",
+								  "linkToPortIdProperty": "toPort",
+								  "nodeDataArray": [
+								
+								{"key":"172.16.90.13", "loc":"-500 -70", "img":"assets/img/computer_icon.png",
+								"leftArray":[ {"portColor":"#425e5c", "portId":"6.1", "portNumber":"6.1"} ],
+								"rightArray":[{"portColor":"#425e5c", "portId":"6.4", "portNumber":"6.4"},
+											  {"portColor":"#425e5c", "portId":"5.1", "portNumber":"5.1"}],
+								"bottomArray":[{"portColor":"#425e5c", "portId":"2.1", "portNumber":"2.1"}],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.16.90.13", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
+								
+								{"key":"172.16.90.15", "loc":"-850 0", "img":"assets/img/computer_icon.png",
+								"rightArray":[{"portColor":"#425e5c", "portId":"1", "portNumber":"1"},
+											  {"portColor":"#425e5c", "portId":"2", "portNumber":"2"}],
+								  "Chassis":"PC", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "PC-Control Room", "Product": "PC", "FirmwareVersion": "Windows", "Status": "Ok"},
+								
+								{"key":"172.19.192.42", "loc":"-150 -100", "img":"assets/img/computer_icon.png",
+								"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"PC", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "PC-Control Room", "Product": "PC", "FirmwareVersion": "Windows", "Status": "Ok"},
+								
+								{"key":"172.19.192.35", "loc":"-150 0", "img":"assets/img/computer_icon.png",
+								"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"PC", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "PC-Control Room", "Product": "PC", "FirmwareVersion": "Windows", "Status": "Ok"},
+								
+								{"key":"172.16.93.11", "loc":"-500 200", "img":"assets/img/computer_icon.png",
+								"leftArray":[ {"portColor":"#425e5c", "portId":"6.4", "portNumber":"6.4"},
+											  {"portColor":"#425e5c", "portId":"7.2", "portNumber":"7.2"},
+											  {"portColor":"#425e5c", "portId":"5.1", "portNumber":"5.1"}],
+								"rightArray":[{"portColor":"#425e5c", "portId":"1.3", "portNumber":"1.3"},
+											  {"portColor":"#425e5c", "portId":"1.2", "portNumber":"1.2"},
+											  {"portColor":"#425e5c", "portId":"2.4", "portNumber":"2.4"}],
+								"topArray":[{"portColor":"#425e5c", "portId":"2.1", "portNumber":"2.1"},
+											{"portColor":"#425e5c", "portId":"2.2", "portNumber":"2.2"}],
+								"bottomArray":[{"portColor":"#425e5c", "portId":"1.1", "portNumber":"1.1"}],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.16.93.11", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
+								
+								{"key":"172.19.208.7", "loc":"-850 100", "img":"assets/img/computer_icon.png",
+								"rightArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"PC", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "PC-Control Room", "Product": "PC", "FirmwareVersion": "Windows", "Status": "Ok"},
+								
+								{"key":"172.19.208.38", "loc":"-850 200", "img":"assets/img/computer_icon.png",
+								"rightArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"Laptop", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "PC-Control Room", "Product": "Lapotp", "FirmwareVersion": "Windows", "Status": "Ok"},
+								
+								{"key":"172.19.208.112", "loc":"-850 300", "img":"assets/img/computer_icon.png",
+								"rightArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.107", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
+								
+								{"key":"172.16.93.52", "loc":"-170 100", "img":"assets/img/computer_icon.png",
+								"leftArray":[ {"portColor":"#425e5c", "portId":"1.1", "portNumber":"1.1"} ],
+								"rightArray":[{"portColor":"#425e5c", "portId":"5.2", "portNumber":"5.2"},
+											  {"portColor":"#425e5c", "portId":"5.1", "portNumber":"5.1"}],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.108", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
+								
+								{"key":"172.19.208.111", "loc":"170 50", "img":"assets/img/computer_icon.png",
+								"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.19.208.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
+								
+								{"key":"172.19.208.113", "loc":"170 150", "img":"assets/img/computer_icon.png",
+								"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.19.208.113", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},  
+								
+								{"key":"172.16.93.50", "loc":"-150 200", "img":"assets/img/computer_icon.png",
+								"leftArray":[ {"portColor":"#425e5c", "portId":"1.1", "portNumber":"1.1"} ],
+								"rightArray":[{"portColor":"#425e5c", "portId":"5.1", "portNumber":"5.1"}],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.110", "Product": "PingDevice", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
+								  
+								{"key":"172.19.208.110", "loc":"170 250", "img":"assets/img/computer_icon.png",
+								"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.19.208.110", "Product": "PingDevice", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
+								
+								{"key":"172.19.208.120", "loc":"-150 300", "img":"assets/img/computer_icon.png",
+								"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
+								
+								{"key":"172.19.208.50", "loc":"-500 530", "img":"assets/img/computer_icon.png",
+								"leftArray":[ {"portColor":"#425e5c", "portId":"2.3", "portNumber":"2.3"},
+											  {"portColor":"#425e5c", "portId":"1.4", "portNumber":"1.4"},
+											  {"portColor":"#425e5c", "portId":"2.2", "portNumber":"2.2"}],
+								"rightArray":[{"portColor":"#425e5c", "portId":"2.4", "portNumber":"2.4"},
+											  {"portColor":"#425e5c", "portId":"1.2", "portNumber":"1.2"},
+											  {"portColor":"#425e5c", "portId":"1.3", "portNumber":"1.3"}],
+								"topArray":[{"portColor":"#425e5c", "portId":"1.1", "portNumber":"1.1"}],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
+								  
+								{"key":"172.19.208.120", "loc":"-850 430", "img":"assets/img/computer_icon.png",
+								"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
+								  
+								{"key":"172.19.208.109", "loc":"-850 430", "img":"assets/img/computer_icon.png",
+								"rightArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
+								  
+								{"key":"172.19.208.108", "loc":"-850 530", "img":"assets/img/computer_icon.png",
+								"rightArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
+								  
+								{"key":"172.19.208.106", "loc":"-850 630", "img":"assets/img/computer_icon.png",
+								"rightArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
+								  
+								{"key":"172.19.208.102", "loc":"-150 430", "img":"assets/img/computer_icon.png",
+								"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
+								  
+								{"key":"172.19.208.51", "loc":"-150 530", "img":"assets/img/computer_icon.png",
+								"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
+								  
+								{"key":"172.19.208.55", "loc":"-150 630", "img":"assets/img/computer_icon.png",
+								"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
+								  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"}
+								],
+								
+								"linkDataArray": [
+								{"from":"172.16.90.13", "to":"172.19.192.42", "fromPort":"6.4", "toPort":"1"},
+								{"from":"172.16.90.13", "to":"172.19.192.35", "fromPort":"5.1", "toPort":"1"},
+								{"from":"172.16.90.13", "to":"172.16.90.15", "fromPort":"6.1", "toPort":"1"},
+								{"from":"172.16.90.13", "to":"172.16.93.11", "fromPort":"2.1", "toPort":"2.2"},
+								{"from":"172.16.90.15", "to":"172.16.93.11", "fromPort":"2", "toPort":"2.1"},
+								{"from":"172.16.93.11", "to":"172.19.208.7", "fromPort":"6.4", "toPort":"1"},
+								{"from":"172.16.93.11", "to":"172.19.208.38", "fromPort":"7.2", "toPort":"1"},
+								{"from":"172.16.93.11", "to":"172.19.208.112", "fromPort":"5.1", "toPort":"1"},
+								{"from":"172.16.93.11", "to":"172.16.93.52", "fromPort":"1.3", "toPort":"1.1"},
+								{"from":"172.16.93.11", "to":"172.16.93.50", "fromPort":"1.2", "toPort":"1.1"},
+								{"from":"172.16.93.11", "to":"172.19.208.120", "fromPort":"2.4", "toPort":"1"},
+								{"from":"172.16.93.11", "to":"172.19.208.50", "fromPort":"1.1", "toPort":"1.1"},
+								{"from":"172.19.208.50", "to":"172.19.208.109", "fromPort":"2.3", "toPort":"1"},
+								{"from":"172.19.208.50", "to":"172.19.208.108", "fromPort":"1.4", "toPort":"1"},
+								{"from":"172.19.208.50", "to":"172.19.208.106", "fromPort":"2.2", "toPort":"1"},
+								{"from":"172.19.208.50", "to":"172.19.208.102", "fromPort":"2.4", "toPort":"1"},
+								{"from":"172.19.208.50", "to":"172.19.208.51", "fromPort":"1.2", "toPort":"1"},
+								{"from":"172.19.208.50", "to":"172.19.208.55", "fromPort":"1.3", "toPort":"1"},
+								{"from":"172.16.93.52", "to":"172.19.208.111", "fromPort":"5.2", "toPort":"1"},
+								{"from":"172.16.93.52", "to":"172.19.208.113", "fromPort":"5.1", "toPort":"1"},
+								{"from":"172.16.93.50", "to":"172.19.208.110", "fromPort":"5.1", "toPort":"1"}
+								]}
+							</textarea>
+					</div><!-- view-topology -->
+					<div class="view-table hidden">
 						<table class="table table-striped">
 							<thead>
 								<tr>
@@ -585,152 +728,6 @@
 							</tfoot>
 						</table>
 					</div><!-- view-table -->
-					<div class="view-topology hidden">
-					<!--	<img src="assets/img/topology-2@2x.png" width="3152" height="836" alt="inventory topology view"> -->
-					<div id="myDiagram" style="height:800px;"></div>
-					<textarea id="mySavedModel" style="display:none;">
-							{ "class": "go.GraphLinksModel",
-							  "copiesArrays": true,
-							  "copiesArrayObjects": true,
-							  "linkFromPortIdProperty": "fromPort",
-							  "linkToPortIdProperty": "toPort",
-							  "nodeDataArray": [
-							
-							{"key":"172.16.90.13", "loc":"-500 -70", "img":"assets/img/computer_icon.png",
-							"leftArray":[ {"portColor":"#425e5c", "portId":"6.1", "portNumber":"6.1"} ],
-							"rightArray":[{"portColor":"#425e5c", "portId":"6.4", "portNumber":"6.4"},
-										  {"portColor":"#425e5c", "portId":"5.1", "portNumber":"5.1"}],
-							"bottomArray":[{"portColor":"#425e5c", "portId":"2.1", "portNumber":"2.1"}],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.16.90.13", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
-							
-							{"key":"172.16.90.15", "loc":"-850 0", "img":"assets/img/computer_icon.png",
-							"rightArray":[{"portColor":"#425e5c", "portId":"1", "portNumber":"1"},
-										  {"portColor":"#425e5c", "portId":"2", "portNumber":"2"}],
-							  "Chassis":"PC", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "PC-Control Room", "Product": "PC", "FirmwareVersion": "Windows", "Status": "Ok"},
-							
-							{"key":"172.19.192.42", "loc":"-150 -100", "img":"assets/img/computer_icon.png",
-							"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"PC", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "PC-Control Room", "Product": "PC", "FirmwareVersion": "Windows", "Status": "Ok"},
-							
-							{"key":"172.19.192.35", "loc":"-150 0", "img":"assets/img/computer_icon.png",
-							"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"PC", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "PC-Control Room", "Product": "PC", "FirmwareVersion": "Windows", "Status": "Ok"},
-							
-							{"key":"172.16.93.11", "loc":"-500 200", "img":"assets/img/computer_icon.png",
-							"leftArray":[ {"portColor":"#425e5c", "portId":"6.4", "portNumber":"6.4"},
-										  {"portColor":"#425e5c", "portId":"7.2", "portNumber":"7.2"},
-										  {"portColor":"#425e5c", "portId":"5.1", "portNumber":"5.1"}],
-							"rightArray":[{"portColor":"#425e5c", "portId":"1.3", "portNumber":"1.3"},
-										  {"portColor":"#425e5c", "portId":"1.2", "portNumber":"1.2"},
-										  {"portColor":"#425e5c", "portId":"2.4", "portNumber":"2.4"}],
-							"topArray":[{"portColor":"#425e5c", "portId":"2.1", "portNumber":"2.1"},
-										{"portColor":"#425e5c", "portId":"2.2", "portNumber":"2.2"}],
-							"bottomArray":[{"portColor":"#425e5c", "portId":"1.1", "portNumber":"1.1"}],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.16.93.11", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
-							
-							{"key":"172.19.208.7", "loc":"-850 100", "img":"assets/img/computer_icon.png",
-							"rightArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"PC", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "PC-Control Room", "Product": "PC", "FirmwareVersion": "Windows", "Status": "Ok"},
-							
-							{"key":"172.19.208.38", "loc":"-850 200", "img":"assets/img/computer_icon.png",
-							"rightArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"Laptop", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "PC-Control Room", "Product": "Lapotp", "FirmwareVersion": "Windows", "Status": "Ok"},
-							
-							{"key":"172.19.208.112", "loc":"-850 300", "img":"assets/img/computer_icon.png",
-							"rightArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.107", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
-							
-							{"key":"172.16.93.52", "loc":"-170 100", "img":"assets/img/computer_icon.png",
-							"leftArray":[ {"portColor":"#425e5c", "portId":"1.1", "portNumber":"1.1"} ],
-							"rightArray":[{"portColor":"#425e5c", "portId":"5.2", "portNumber":"5.2"},
-										  {"portColor":"#425e5c", "portId":"5.1", "portNumber":"5.1"}],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.108", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
-							
-							{"key":"172.19.208.111", "loc":"170 50", "img":"assets/img/computer_icon.png",
-							"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.19.208.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
-							
-							{"key":"172.19.208.113", "loc":"170 150", "img":"assets/img/computer_icon.png",
-							"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.19.208.113", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},  
-							
-							{"key":"172.16.93.50", "loc":"-150 200", "img":"assets/img/computer_icon.png",
-							"leftArray":[ {"portColor":"#425e5c", "portId":"1.1", "portNumber":"1.1"} ],
-							"rightArray":[{"portColor":"#425e5c", "portId":"5.1", "portNumber":"5.1"}],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.110", "Product": "PingDevice", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
-							  
-							{"key":"172.19.208.110", "loc":"170 250", "img":"assets/img/computer_icon.png",
-							"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.19.208.110", "Product": "PingDevice", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
-							
-							{"key":"172.19.208.120", "loc":"-150 300", "img":"assets/img/computer_icon.png",
-							"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
-							
-							{"key":"172.19.208.50", "loc":"-500 530", "img":"assets/img/computer_icon.png",
-							"leftArray":[ {"portColor":"#425e5c", "portId":"2.3", "portNumber":"2.3"},
-										  {"portColor":"#425e5c", "portId":"1.4", "portNumber":"1.4"},
-										  {"portColor":"#425e5c", "portId":"2.2", "portNumber":"2.2"}],
-							"rightArray":[{"portColor":"#425e5c", "portId":"2.4", "portNumber":"2.4"},
-										  {"portColor":"#425e5c", "portId":"1.2", "portNumber":"1.2"},
-										  {"portColor":"#425e5c", "portId":"1.3", "portNumber":"1.3"}],
-							"topArray":[{"portColor":"#425e5c", "portId":"1.1", "portNumber":"1.1"}],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
-							  
-							{"key":"172.19.208.120", "loc":"-850 430", "img":"assets/img/computer_icon.png",
-							"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
-							  
-							{"key":"172.19.208.109", "loc":"-850 430", "img":"assets/img/computer_icon.png",
-							"rightArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
-							  
-							{"key":"172.19.208.108", "loc":"-850 530", "img":"assets/img/computer_icon.png",
-							"rightArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
-							  
-							{"key":"172.19.208.106", "loc":"-850 630", "img":"assets/img/computer_icon.png",
-							"rightArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
-							  
-							{"key":"172.19.208.102", "loc":"-150 430", "img":"assets/img/computer_icon.png",
-							"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
-							  
-							{"key":"172.19.208.51", "loc":"-150 530", "img":"assets/img/computer_icon.png",
-							"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"},
-							  
-							{"key":"172.19.208.55", "loc":"-150 630", "img":"assets/img/computer_icon.png",
-							"leftArray":[ {"portColor":"#425e5c", "portId":"1", "portNumber":"1"} ],
-							  "Chassis":"Switch", "Contact": "Hirschmann Automation and Control Gmbh", "Location": "Hirschmann RSR", "Name": "172.21.76.111", "Product": "SWITCH", "FirmwareVersion": "L2P-09.00.00", "Status": "Ok"}
-							],
-							
-							"linkDataArray": [
-							{"from":"172.16.90.13", "to":"172.19.192.42", "fromPort":"6.4", "toPort":"1"},
-							{"from":"172.16.90.13", "to":"172.19.192.35", "fromPort":"5.1", "toPort":"1"},
-							{"from":"172.16.90.13", "to":"172.16.90.15", "fromPort":"6.1", "toPort":"1"},
-							{"from":"172.16.90.13", "to":"172.16.93.11", "fromPort":"2.1", "toPort":"2.2"},
-							{"from":"172.16.90.15", "to":"172.16.93.11", "fromPort":"2", "toPort":"2.1"},
-							{"from":"172.16.93.11", "to":"172.19.208.7", "fromPort":"6.4", "toPort":"1"},
-							{"from":"172.16.93.11", "to":"172.19.208.38", "fromPort":"7.2", "toPort":"1"},
-							{"from":"172.16.93.11", "to":"172.19.208.112", "fromPort":"5.1", "toPort":"1"},
-							{"from":"172.16.93.11", "to":"172.16.93.52", "fromPort":"1.3", "toPort":"1.1"},
-							{"from":"172.16.93.11", "to":"172.16.93.50", "fromPort":"1.2", "toPort":"1.1"},
-							{"from":"172.16.93.11", "to":"172.19.208.120", "fromPort":"2.4", "toPort":"1"},
-							{"from":"172.16.93.11", "to":"172.19.208.50", "fromPort":"1.1", "toPort":"1.1"},
-							{"from":"172.19.208.50", "to":"172.19.208.109", "fromPort":"2.3", "toPort":"1"},
-							{"from":"172.19.208.50", "to":"172.19.208.108", "fromPort":"1.4", "toPort":"1"},
-							{"from":"172.19.208.50", "to":"172.19.208.106", "fromPort":"2.2", "toPort":"1"},
-							{"from":"172.19.208.50", "to":"172.19.208.102", "fromPort":"2.4", "toPort":"1"},
-							{"from":"172.19.208.50", "to":"172.19.208.51", "fromPort":"1.2", "toPort":"1"},
-							{"from":"172.19.208.50", "to":"172.19.208.55", "fromPort":"1.3", "toPort":"1"},
-							{"from":"172.16.93.52", "to":"172.19.208.111", "fromPort":"5.2", "toPort":"1"},
-							{"from":"172.16.93.52", "to":"172.19.208.113", "fromPort":"5.1", "toPort":"1"},
-							{"from":"172.16.93.50", "to":"172.19.208.110", "fromPort":"5.1", "toPort":"1"}
-							]}
-						</textarea>
-					</div><!-- view-topology -->
 					<div class="view-map hidden">
 						
 					</div><!-- view-map -->
@@ -752,6 +749,8 @@
 
 <script src="assets/js/jquery-1.11.3.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/go.js"></script>
+<script src="assets/js/topology.js"></script>	
 <script src="assets/js/main.js"></script>
   
 </body>
