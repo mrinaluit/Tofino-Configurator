@@ -266,9 +266,9 @@ function init() {
              },
              new go.Binding("points").makeTwoWay(),
              $(go.Shape, {
-                 stroke: "#6E6E6E",
                  strokeWidth: 2
-             })
+             },
+             new go.Binding("stroke", "linkColor"))
          );
 
      // load the diagram from JSON data
