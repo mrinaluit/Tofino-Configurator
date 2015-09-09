@@ -105,14 +105,226 @@ function init() {
                                     return "assets/img/LED-green@2x.png"; break;
    
                                 case "Warning":
-                                    return "assets/img/LED-yellow@2x.png"; break;
+                                    return "assets/img/icon-now-blue@2x.png"; break;
    
                                 case "Error":
-                                    return "assets/img/LED-red@2x.png"; break;
+                                    return "assets/img/icon-now-red@2x.png"; break;
   
                                   }
                                 }))                        
-                )
+                ),
+				
+				
+				
+				 //To display Tooltip 
+                 {
+                     toolTip: $(go.Adornment, "Auto",{ background: "white",     mouseOver: function (e, obj) { showPoint(obj.part.location); }},
+                              
+							  $(go.Shape, {margin: 1,stroke: "#d3d8db",fill: "white", width: 320}),
+							  
+
+                              //$(go.RowColumnDefinition,{ column: 1, sizing: go.RowColumnDefinition.None }),
+
+
+                              $(go.Panel, "Vertical", {
+                                     width: 320,
+                                     defaultStretch: go.GraphObject.Horizontal
+                                 },
+								 
+								 
+								
+							$(go.Panel, "Auto",{ margin:0, width:320, height: 30},
+							 $(go.Shape, {
+                                 margin: 1,
+								 stroke:null,
+								 fill: "#fafafa" //"#f2f0f0"
+								 
+                             }),$(go.TextBlock, {
+                                     margin: 4,
+                                     alignment: go.Spot.Center,
+                                     stroke: "#031c36",
+                                     font: "bold 15px  Segoe UI,sans-serif"
+                                 }, new go.Binding("text", "Chassis"))),
+							
+							    //bottom Border
+								$(go.Panel, "Auto",{ margin:0, width:320, height:0.5,background:"#cdcdce"}),
+								
+	                           //Top Space
+	                            $(go.Panel, "Auto",{ margin:0, width:320, height:10}),
+	
+                                 $(go.TextBlock, {
+                                     margin: 4,
+                                     textAlign: "left",
+                                     stroke: "#031c36",
+                                     font: "bold 11px  Segoe UI,sans-serif",
+									 text: "STATS"
+                                 }),
+
+                                 //bottom Border
+								$(go.Panel, "Auto",{ margin:0, width:320, height:0.5,background:"#cdcdce"}),
+								 
+							
+							  //Space
+	                          $(go.Panel, "Auto",{ margin:0, width:320, height:10}), 
+								 
+							  //Information content 
+							  $(go.Panel, "Horizontal",{ margin:0, width:320},
+
+							  $(go.Panel, "Vertical",{ margin:5, alignment: go.Spot.Left, width: 150,background:null},
+
+								$(go.TextBlock, {
+                                     margin: 2,
+                                     alignment: go.Spot.Left,
+                                     stroke: "black",
+                                     font: "18px  Segoe UI,sans-serif"
+                                 }, new go.Binding("text", "AutoNeg")),
+								
+								
+								 $(go.TextBlock, {
+                                     margin: 2,
+                                     alignment: go.Spot.Left,
+                                     stroke: "#031c36",
+                                     font: "bold 10px  Segoe UI,sans-serif",
+									 text: "AUTO NEG"
+                                 }),
+								 
+								//Space
+	                            $(go.Panel, "Auto",{ margin:0, width:320, height:10}), 
+								 
+								 $(go.TextBlock, {
+                                     margin: 2,
+                                     alignment: go.Spot.Left,
+                                     stroke: "black",
+                                     font: "18px  Segoe UI,sans-serif"
+                                 }, new go.Binding("text", "Temperature")),
+								 
+								  $(go.TextBlock, {
+                                     margin: 2,
+                                     alignment: go.Spot.Left,
+                                     stroke: "#031c36",
+                                     font: "bold 10px  Segoe UI,sans-serif",
+									 text: "TEMPERATURE"
+                                 }),
+								  
+								  
+								  //Space
+	                            $(go.Panel, "Auto",{ margin:0, width:320, height:10}), 
+								  
+								  $(go.TextBlock, {
+                                     margin: 2,
+                                     alignment: go.Spot.Left,
+                                     stroke: "black",
+                                     font: "18px  Segoe UI,sans-serif"
+                                 }, new go.Binding("text", "Location")),
+								  
+								   $(go.TextBlock, {
+                                     margin: 2,
+                                     alignment: go.Spot.Left,
+                                     stroke: "#031c36",
+                                     font: "bold 10px  Segoe UI,sans-serif bold",
+									 text: "LOCATION"
+                                 }),
+								   
+								   
+								   //Space
+	                               $(go.Panel, "Auto",{ margin:0, width:320, height:10}), 
+								   
+								    $(go.TextBlock, {
+                                     margin: 2,
+                                     alignment: go.Spot.Left,
+                                     stroke: "black",
+                                     font: "18px  Segoe UI,sans-serif"
+                                 }, new go.Binding("text", "Reachability")),
+								  
+								   $(go.TextBlock, {
+                                     margin: 2,
+                                     alignment: go.Spot.Left,
+                                     stroke: "#031c36",
+                                     font: "bold 10px  Segoe UI,sans-serif bold",
+									 text: "REACHABILITY"
+                                 })
+   
+								 
+								),
+							  
+							  $(go.Panel, "Vertical",{ margin:0, alignment: go.Spot.TopRight, width: 160,background:null},
+								
+						        $(go.TextBlock, {
+                                     margin: 2,
+                                     alignment: go.Spot.Left,
+                                     stroke: "black",
+                                     font: "18px  Segoe UI,sans-serif"
+                                 }, new go.Binding("text", "NoOfUsers")),
+								
+								
+								 $(go.TextBlock, {
+                                     margin: 2,
+                                     alignment: go.Spot.Left,
+                                     stroke: "#031c36",
+                                     font: "bold 10px  Segoe UI,sans-serif bold",
+									 text: "NO OF USERS"
+                                 }),
+								 
+								 
+								 //Space
+	                            $(go.Panel, "Auto",{ margin:0, width:320, height:10}), 
+								 
+								 
+								 $(go.TextBlock, {
+                                     margin: 2,
+                                     alignment: go.Spot.Left,
+                                     stroke: "black",
+                                     font: "18px  Segoe UI,sans-serif"
+                                 }, new go.Binding("text", "Product")),
+								 
+								  $(go.TextBlock, {
+                                     margin: 2,
+                                     alignment: go.Spot.Left,
+                                     stroke: "#031c36",
+                                     font: "bold 10px  Segoe UI,sans-serif bold",
+									 text: "PRODUCT"
+                                 }),
+								  
+								  
+								  //Space
+	                              $(go.Panel, "Auto",{ margin:0, width:320, height:10}), 
+								  
+								  $(go.TextBlock, {
+                                     margin: 2,
+                                     alignment: go.Spot.Left,
+                                     stroke: "black",
+                                     font: "18px  Segoe UI,sans-serif"
+                                 }, new go.Binding("text", "FirmwareVersion")),
+								  
+								   $(go.TextBlock, {
+                                     margin: 2,
+                                     alignment: go.Spot.Left,
+                                     stroke: "#031c36",
+                                     font: "bold 10px  Segoe UI,sans-serif bold",
+									 text: "FIRMWARE VERSION"
+                                 })
+								  
+								)
+							  
+							  ),
+								 
+								 
+								//Space
+	                            $(go.Panel, "Auto",{ margin:0, width:320, height:10})  
+								 
+								
+
+                             )
+
+                         ) // end of Adornment
+
+                 }
+                 //Tooltip End
+				
+				
+				
+				
+				
              ), // end Auto Panel body
 
              // the Panel holding the left port elements, which are themselves Panels,
@@ -266,9 +478,9 @@ function init() {
              },
              new go.Binding("points").makeTwoWay(),
              $(go.Shape, {
+                 stroke: "#6E6E6E",
                  strokeWidth: 2
-             },
-             new go.Binding("stroke", "linkColor"))
+             })
          );
 
      // load the diagram from JSON data
@@ -434,3 +646,33 @@ function init() {
      myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
      myDiagram.id = "one";
  }
+
+
+  
+  //Enable/disable zoom effects
+  function enable(name, ok) {
+    var button = document.getElementById(name);
+    if (button) button.disabled = !ok;
+  }
+  // enable or disable all command buttons
+  function enableAll() {
+    var cmdhnd = diagram.commandHandler;
+	enable("ZoomIn", cmdhnd.canIncreaseZoom());
+	enable("ZoomOut", cmdhnd.canDecreaseZoom());
+  }
+  // notice whenever the selection may have changed
+  diagram.addDiagramListener("ChangedSelection", function(e) {
+    enableAll();
+  });
+  // notice when the Paste command may need to be reenabled
+  diagram.addDiagramListener("ClipboardChanged", function(e) {
+    enableAll();
+  });
+  // notice whenever a transaction or undo/redo has occurred
+  diagram.model.addChangedListener(function(e) {
+    if (e.isTransactionFinished) enableAll();
+  });
+  // perform initial enablements after everything has settled down
+  setTimeout(enableAll, 1);
+
+  myDiagram = diagram;  // make the diagram accessible to button onclick handlers
