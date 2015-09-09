@@ -97,8 +97,8 @@ function init() {
 				
                  //To display status
                 $(go.Panel, "Horizontal",{ margin:0, alignment:
-                go.Spot.TopRight, width: 30, height: 30},
-                 $(go.Picture, { width: 25, height: 23 }, new
+                go.Spot.TopRight, width: 25, height: 30},
+                 $(go.Picture, { width: 19, height: 19 }, new
                  go.Binding("source", "Status", function(c) {        
                             switch (c) {
                                 case "Ok":
