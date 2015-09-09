@@ -105,11 +105,10 @@ function init() {
                                     return "assets/img/LED-green@2x.png"; break;
    
                                 case "Warning":
-                                    return "assets/img/icon-now-blue@2x.png"; break;
+                                    return "assets/img/LED-yellow@2x.png"; break;
    
                                 case "Error":
-                                    return "assets/img/icon-now-red@2x.png"; break;
-  
+                                    return "assets/img/LED-red@2x.png"; break;
                                   }
                                 }))                        
                 ),
@@ -480,7 +479,8 @@ function init() {
              $(go.Shape, {
                  stroke: "#6E6E6E",
                  strokeWidth: 2
-             })
+             },
+             new go.Binding("stroke", "linkColor"))
          );
 
      // load the diagram from JSON data
