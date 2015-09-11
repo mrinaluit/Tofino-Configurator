@@ -175,6 +175,7 @@ function init() {
                                      margin: 2,
                                      alignment: go.Spot.Left,
                                      stroke: "black",
+                                     text: "On",
                                      font: "18px  Segoe UI,sans-serif"
                                  }, new go.Binding("text", "AutoNeg")),
 								
@@ -194,6 +195,7 @@ function init() {
                                      margin: 2,
                                      alignment: go.Spot.Left,
                                      stroke: "black",
+                                     text: "28C",
                                      font: "18px  Segoe UI,sans-serif"
                                  }, new go.Binding("text", "Temperature")),
 								 
@@ -213,6 +215,7 @@ function init() {
                                      margin: 2,
                                      alignment: go.Spot.Left,
                                      stroke: "black",
+                                     text: Hirschmann,
                                      font: "18px  Segoe UI,sans-serif"
                                  }, new go.Binding("text", "Location")),
 								  
@@ -232,6 +235,7 @@ function init() {
                                      margin: 2,
                                      alignment: go.Spot.Left,
                                      stroke: "black",
+                                     text: "Reachable",
                                      font: "18px  Segoe UI,sans-serif"
                                  }, new go.Binding("text", "Reachability")),
 								  
@@ -252,6 +256,7 @@ function init() {
                                      margin: 2,
                                      alignment: go.Spot.Left,
                                      stroke: "black",
+                                     text: "2 Users",
                                      font: "18px  Segoe UI,sans-serif"
                                  }, new go.Binding("text", "NoOfUsers")),
 								
