@@ -83,9 +83,9 @@ function init() {
                  }),
 				 
                  //To display left image
-                 $(go.Panel, "Auto",{ margin:(0,0,0,1), alignment: go.Spot.Left, width: 80, height: 58, background:"#e7e7e7" },
-			     $(go.Shape, "Rectangle", {margin:(0,0,0,0), stroke: "#c4c4c4",fill: "#fafafa",minSize: new go.Size(60, 58) }),							  
-	             $(go.Picture,{ alignment: go.Spot.Left}, {margin:(7,0,0,20), width: 40, height: 25},
+                 $(go.Panel, "Auto",{ margin:(0,0,0,1), alignment: go.Spot.Left, width: 60, height: 60, background:"#e7e7e7" },
+			     $(go.Shape, "Rectangle", {margin:(0,0,0,0), stroke: "#c4c4c4",fill: "#fafafa",minSize: new go.Size(60, 60) }),							  
+	             $(go.Picture,{ alignment: go.Spot.Left}, {margin:(7,0,0,0), width: 59, height: 58},
 				   new go.Binding("source", "img"))		  
                  ) ,
 
@@ -490,6 +490,9 @@ function init() {
 
      // load the diagram from JSON data
      load();
+
+     // set default zoom factor
+     myDiagram.commandHandler.zoomFactor = 1.5;
  }
 
  // This custom-routing Link class tries to separate parallel links from each other.

@@ -6201,7 +6201,7 @@ input[type="text"].i-search {
     margin: 0; }
   .main-content .view-table tfoot {
     padding: 0;
-    background: F7F7F7;
+    background: #F7F7F7;
     box-shadow: inset 0px -1px 0px 0px #C1C1C1; }
     .main-content .view-table tfoot td {
       padding: 20px 15px; }
@@ -6209,7 +6209,21 @@ input[type="text"].i-search {
         display: inline-block; }
   .main-content .view-topology {
     background: url("../img/bg-topo.jpg");
-    overflow: auto; }
+    overflow: auto; 
+    position: relative; }
+    .main-content .view-topology .zoom-controls {
+      position: absolute;
+      top: 20px;
+      right: 15px; 
+      z-index: 1000; }
+      .main-content .view-topology .zoom-controls .control {
+        display: block;
+        font-size: 2em;
+        font-weight: bold;
+        line-height: 1em;
+        margin: 0 0 10px 0;
+        height: 40px;
+        width: 40px; }
   .main-content .view-map {
     min-height: 1000px;
     background: url("../img/map.jpg"); }
