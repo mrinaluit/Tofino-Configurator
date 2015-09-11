@@ -215,7 +215,7 @@ function init() {
                                      margin: 2,
                                      alignment: go.Spot.Left,
                                      stroke: "black",
-                                     text: Hirschmann,
+                                     text: "Hirschmann",
                                      font: "18px  Segoe UI,sans-serif"
                                  }, new go.Binding("text", "Location")),
 								  
