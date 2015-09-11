@@ -79,7 +79,8 @@ function init() {
 				     fill: "white",
                      stroke: "#c4c4c4",
                      strokeWidth: 1,
-                     minSize: new go.Size(250, 60)
+                     minSize: new go.Size(205, 60),
+                     maxSize: new go.Size(205, 60)
                  }),
 				 
                  //To display left image
@@ -90,14 +91,32 @@ function init() {
                  ) ,
 
 				//To display right text
-				$(go.Panel, "Vertical",{ margin:0, alignment: go.Spot.Right, width: 168, height: 35},
-				$(go.TextBlock,{ alignment: go.Spot.Top}, { margin: (12,0,0,0),font: "14px  Segoe UI,sans-serif",stroke: "black"}, new go.Binding("text", "key")),
-				$(go.TextBlock,{ alignment: go.Spot.Bottom}, { margin: (12,0,0,0),font: "14px  Segoe UI,sans-serif",stroke: "#0d4774"}, new go.Binding("text", "Chassis"))	  
+				$(go.Panel, "Vertical",
+                    // panel properties
+                    { defaultStretch: go.GraphObject.Horizontal, margin: (0,0,0,70)},
+				    // elements in the panel
+                    $(go.TextBlock, 
+                        { 
+                            textAlign: "left",
+                            font: "1em 'Source Sans Pro',sans-serif", 
+                            stroke: "#0E3047",
+                            height: 20
+                        }, 
+                        new go.Binding("text", "Chassis")
+                    ),
+                    $(go.TextBlock, 
+                        { 
+                            textAlign: "left",
+                            font: "0.9em 'Source Sans Pro',sans-serif", 
+                            stroke: "#9D9D9D",
+                        }, 
+                        new go.Binding("text", "key")
+                    )
 				) ,
 				
                  //To display status
                 $(go.Panel, "Horizontal",{ margin:0, alignment:
-                go.Spot.TopRight, width: 25, height: 30},
+                go.Spot.TopRight, width: 25, height: 35},
                  $(go.Picture, { width: 19, height: 19 }, new
                  go.Binding("source", "Status", function(c) {        
                             switch (c) {
@@ -142,7 +161,7 @@ function init() {
                                      margin: 4,
                                      alignment: go.Spot.Center,
                                      stroke: "#031c36",
-                                     font: "bold 15px  Segoe UI,sans-serif"
+                                     font: "bold 15px 'Source Sans Pro',sans-serif"
                                  }, new go.Binding("text", "Chassis"))),
 							
 							    //bottom Border
@@ -155,7 +174,7 @@ function init() {
                                      margin: 4,
                                      textAlign: "left",
                                      stroke: "#031c36",
-                                     font: "bold 11px  Segoe UI,sans-serif",
+                                     font: "bold 11px 'Source Sans Pro',sans-serif",
 									 text: "STATS"
                                  }),
 
@@ -176,7 +195,7 @@ function init() {
                                      alignment: go.Spot.Left,
                                      stroke: "black",
                                      text: "On",
-                                     font: "18px  Segoe UI,sans-serif"
+                                     font: "18px 'Source Sans Pro',sans-serif"
                                  }, new go.Binding("text", "AutoNeg")),
 								
 								
@@ -184,7 +203,7 @@ function init() {
                                      margin: 2,
                                      alignment: go.Spot.Left,
                                      stroke: "#031c36",
-                                     font: "bold 10px  Segoe UI,sans-serif",
+                                     font: "bold 10px 'Source Sans Pro',sans-serif",
 									 text: "AUTO NEG"
                                  }),
 								 
@@ -196,14 +215,14 @@ function init() {
                                      alignment: go.Spot.Left,
                                      stroke: "black",
                                      text: "28C",
-                                     font: "18px  Segoe UI,sans-serif"
+                                     font: "18px 'Source Sans Pro',sans-serif"
                                  }, new go.Binding("text", "Temperature")),
 								 
 								  $(go.TextBlock, {
                                      margin: 2,
                                      alignment: go.Spot.Left,
                                      stroke: "#031c36",
-                                     font: "bold 10px  Segoe UI,sans-serif",
+                                     font: "bold 10px 'Source Sans Pro',sans-serif",
 									 text: "TEMPERATURE"
                                  }),
 								  
@@ -216,14 +235,14 @@ function init() {
                                      alignment: go.Spot.Left,
                                      stroke: "black",
                                      text: "Hirschmann",
-                                     font: "18px  Segoe UI,sans-serif"
+                                     font: "18px 'Source Sans Pro',sans-serif"
                                  }, new go.Binding("text", "Location")),
 								  
 								   $(go.TextBlock, {
                                      margin: 2,
                                      alignment: go.Spot.Left,
                                      stroke: "#031c36",
-                                     font: "bold 10px  Segoe UI,sans-serif bold",
+                                     font: "bold 10px 'Source Sans Pro',sans-serif bold",
 									 text: "LOCATION"
                                  }),
 								   
@@ -236,14 +255,14 @@ function init() {
                                      alignment: go.Spot.Left,
                                      stroke: "black",
                                      text: "Reachable",
-                                     font: "18px  Segoe UI,sans-serif"
+                                     font: "18px 'Source Sans Pro',sans-serif"
                                  }, new go.Binding("text", "Reachability")),
 								  
 								   $(go.TextBlock, {
                                      margin: 2,
                                      alignment: go.Spot.Left,
                                      stroke: "#031c36",
-                                     font: "bold 10px  Segoe UI,sans-serif bold",
+                                     font: "bold 10px 'Source Sans Pro',sans-serif bold",
 									 text: "REACHABILITY"
                                  })
    
@@ -257,7 +276,7 @@ function init() {
                                      alignment: go.Spot.Left,
                                      stroke: "black",
                                      text: "2 Users",
-                                     font: "18px  Segoe UI,sans-serif"
+                                     font: "18px 'Source Sans Pro',sans-serif"
                                  }, new go.Binding("text", "NoOfUsers")),
 								
 								
@@ -265,7 +284,7 @@ function init() {
                                      margin: 2,
                                      alignment: go.Spot.Left,
                                      stroke: "#031c36",
-                                     font: "bold 10px  Segoe UI,sans-serif bold",
+                                     font: "bold 10px 'Source Sans Pro',sans-serif bold",
 									 text: "NO OF USERS"
                                  }),
 								 
@@ -278,14 +297,14 @@ function init() {
                                      margin: 2,
                                      alignment: go.Spot.Left,
                                      stroke: "black",
-                                     font: "18px  Segoe UI,sans-serif"
+                                     font: "18px 'Source Sans Pro',sans-serif"
                                  }, new go.Binding("text", "Product")),
 								 
 								  $(go.TextBlock, {
                                      margin: 2,
                                      alignment: go.Spot.Left,
                                      stroke: "#031c36",
-                                     font: "bold 10px  Segoe UI,sans-serif bold",
+                                     font: "bold 10px 'Source Sans Pro',sans-serif bold",
 									 text: "PRODUCT"
                                  }),
 								  
@@ -297,14 +316,14 @@ function init() {
                                      margin: 2,
                                      alignment: go.Spot.Left,
                                      stroke: "black",
-                                     font: "18px  Segoe UI,sans-serif"
+                                     font: "18px 'Source Sans Pro',sans-serif"
                                  }, new go.Binding("text", "FirmwareVersion")),
 								  
 								   $(go.TextBlock, {
                                      margin: 2,
                                      alignment: go.Spot.Left,
                                      stroke: "#031c36",
-                                     font: "bold 10px  Segoe UI,sans-serif bold",
+                                     font: "bold 10px 'Source Sans Pro',sans-serif bold",
 									 text: "FIRMWARE VERSION"
                                  })
 								  
@@ -354,11 +373,11 @@ function init() {
                                      desiredSize: portSize,
                                      margin: new go.Margin(1, 0)}),
                              $(go.TextBlock, {
-                                     margin: new go.Margin(0, 5, 0, 5),
+                                     margin: new go.Margin(0, 5, 2, 5),
                                      textAlign: "left",
                                      stroke: "black",
                                      text: "1.1",
-                                     font: "12px  Segoe UI,sans-serif"
+                                     font: "0.7em 'Source Sans Pro',sans-serif"
                                  },
                                  new go.Binding("text", "portNumber"))
                          ) // end itemTemplate
@@ -388,11 +407,11 @@ function init() {
                                      desiredSize: portSize,
                                      margin: new go.Margin(0, 1)}),
                              $(go.TextBlock, {
-                                     margin: new go.Margin(5, 0, 0, 0),
+                                     margin: new go.Margin(5, 2, 5, 2),
                                      textAlign: "center",
                                      stroke: "black",
                                      text: "1.1",
-                                     font: "12px  Segoe UI,sans-serif"
+                                     font: "0.7em 'Source Sans Pro',sans-serif"
                                  },
                                  new go.Binding("text", "portNumber"))
                          ) // end itemTemplate
@@ -422,11 +441,11 @@ function init() {
                                      fill: null,
                                      margin: new go.Margin(1, 0)}),
                              $(go.TextBlock, {
-                                     margin: new go.Margin(0, 5, 0, 5),
+                                     margin: new go.Margin(0, 5, 2, 5),
                                      textAlign: "center",
                                      stroke: "black",
                                      text: "1.1",
-                                     font: "12px  Segoe UI,sans-serif"
+                                     font: "0.7em 'Source Sans Pro',sans-serif"
                                  },
                                  new go.Binding("text", "portNumber"))
                          ) // end itemTemplate
@@ -456,11 +475,11 @@ function init() {
                                      fill: null,
                                      margin: new go.Margin(0, 5)}),
                              $(go.TextBlock, {
-                                     margin: new go.Margin(5, 0, 5, 0),
+                                     margin: new go.Margin(5, 2, 5, 2),
                                      textAlign: "center",
                                      stroke: "black",
                                      text: "1.1",
-                                     font: "12px  Segoe UI,sans-serif"
+                                     font: "0.7em 'Source Sans Pro',sans-serif"
                                  },
                                  new go.Binding("text", "portNumber"))
                          ) // end itemTemplate
