@@ -1537,6 +1537,7 @@ pre {
     clear: both; }
 
 .row {
+  height: 100%;
   margin-left: -15px;
   margin-right: -15px; }
   .row:before, .row:after {
@@ -5769,8 +5770,6 @@ body {
 */
 header {
   background: #295B95; }
-  header .row > div {
-    height: 78px; }
   header .border {
     border-bottom: 1px solid #0E3047; }
   header #selected-network {
@@ -5778,16 +5777,8 @@ header {
     background-image: -webkit-linear-gradient(270deg, #2F66A7 0%, #1F4979 100%);
     background-image: linear-gradient(-180deg, #2F66A7 0%, #1F4979 100%);
     box-shadow: inset 0px 1px 0px 0px rgba(255, 255, 255, 0.11); }
-    header #selected-network .network-label {
-      text-transform: uppercase;
-      color: #89B1DF;
-      font-size: x-small;
-      letter-spacing: 2px;
-      display: inline-block;
-      padding-top: 20px; }
     header #selected-network .dropdown {
-      margin: 0;
-      padding: 0; }
+      }
       header #selected-network .dropdown button {
         background: transparent;
         color: white;
@@ -5832,7 +5823,7 @@ header {
     header .nav li {
       margin: 0; }
       header .nav li a {
-        padding: 29px 30px;
+        padding: 10px 30px;
         margin: 0;
         color: white;
         background: #295B95;
@@ -5845,18 +5836,17 @@ header {
           box-shadow: inset 0px 1px 8px 0px rgba(0, 0, 0, 0.18);
           border-left-color: #327AB7; }
       header .nav li.active a, header .nav li.active a:hover {
-        /* BG: */
         background: #214F84;
         box-shadow: inset 0px 1px 8px 0px rgba(0, 0, 0, 0.18);
         border-left-color: #1C4879; }
   header .nav-pills li a {
     border-radius: 0; }
   header .dropdown {
-    margin: 12px 0 10px 0; }
+    margin: 10px 0 10px 0; }
     header .dropdown button {
       background: transparent;
       border: 0;
-      padding: 15px 0 15px 20px;
+      padding: 0 0 0 20px;
       border-radius: 0;
       color: white; }
       header .dropdown button .caret {
@@ -5901,14 +5891,13 @@ input[type="text"].i-search {
   border: 1px solid #C4C4C4;
   border-radius: 100px;
   padding: 0 11px 0 34px;
-  line-height: 40px;
-  margin: 0;
-  width: 80px;
-  margin: 0; }
+  line-height: 40px; 
+  width: 180px; }  
   input[type="text"].i-search:focus {
-    width: 200px;
-    -webkit-transition: width .3s;
-            transition: width .3s;
+    margin-left: -80px;
+    width: 260px;
+    -webkit-transition: margin .3s, width .3s;
+            transition: margin .3s, width .3s;
     background-color: white; }
 
 .button-white, #sec-filters .dropdown button, .main-content .view-table tfoot td .dropup button {
@@ -5937,19 +5926,25 @@ input[type="text"].i-search {
     border-color: #2397C7; }
 
 #sec-filters {
+  height: auto;
   padding: 10px 0;
   background: #F7F7F7; }
   #sec-filters h3 {
     margin: 10px 0; }
   #sec-filters .dropdown {
     float: left;
-    margin: 0 8px 10px 0; }
+    margin: 0 8px 0 0; }
 
 #sec-main-content {
   background: #DCE3EC;
   border-bottom: 1px solid #BFBFC2;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
-  overflow: hidden; }
+  overflow: hidden;
+  position: fixed;
+  top: 43px;
+  right: 0;
+  bottom: 41px;
+  left: 0; }
 
 .gradient-bar, .main-content .main-content-titlebar {
   background: #FFFFFF;
@@ -6106,13 +6101,20 @@ input[type="text"].i-search {
           color: #F34101; }
 
 #main-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 25%;
   border-left: 1px solid #BFBFC2;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.14);
   background: white; }
+  #main-content.col-xs-12 {
+    left: 0; }
 
 #col-stats {
-  height: auto;
-  overflow: hidden; }
+  height: 100%;
+  overflow: auto; }
   #col-stats.shrinkWidth {
     height: auto;
     width: 0;
@@ -6208,9 +6210,13 @@ input[type="text"].i-search {
       .main-content .view-table tfoot td .dropup {
         display: inline-block; }
   .main-content .view-topology {
+    position: absolute;
+    top: 126px;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background: url("../img/bg-topo.jpg");
-    overflow: auto; 
-    position: relative; }
+    overflow: auto; }
     .main-content .view-topology .zoom-controls {
       position: absolute;
       top: 20px;
@@ -6234,13 +6240,26 @@ input[type="text"].i-search {
 	
 */
 footer {
-  padding: 50px 0; }
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0; }
   footer .logo {
-    width: 180px;
-    height: 42px;
+    width: 90px;
+    height: 21px;
     overflow: hidden;
     text-indent: 101%;
     white-space: nowrap;
     background-image: url("../img/hirschmann@2x.png");
     background-position: 0 0;
-    background-size: 180px 42px; }
+    background-size: 90px 21px; }
+
+
+/*
+  
+  T O P O L O G Y
+  
+*/
+#myDiagram {
+  height: 100%;
+  overflow: hidden;
+}

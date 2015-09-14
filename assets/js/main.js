@@ -20,12 +20,12 @@ $(document).ready(function(){
 			
 			// drawer is hidden 
 			drawer.removeClass('hidden');
-			mainContent.toggleClass( 'col-sm-9' );
+			mainContent.toggleClass('col-xs-12').toggleClass( 'col-sm-9' );
 		} else {
 			
 			// drawer is showing
 			clicked.addClass('open');
-			mainContent.toggleClass( 'col-sm-9' );
+			mainContent.toggleClass('col-xs-12').toggleClass( 'col-sm-9' );
 			drawer.toggleClass('hidden');
 		}
 	});
