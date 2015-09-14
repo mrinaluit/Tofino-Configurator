@@ -5892,12 +5892,12 @@ input[type="text"].i-search {
   border-radius: 100px;
   padding: 0 11px 0 34px;
   line-height: 40px; 
-  width: 180px; }  
+  width: 180px;
+  -webkit-transition: margin .3s, width .3s;
+          transition: margin .3s, width .3s; }  
   input[type="text"].i-search:focus {
     margin-left: -80px;
     width: 260px;
-    -webkit-transition: margin .3s, width .3s;
-            transition: margin .3s, width .3s;
     background-color: white; }
 
 .button-white, #sec-filters .dropdown button, .main-content .view-table tfoot td .dropup button {
@@ -6108,7 +6108,8 @@ input[type="text"].i-search {
   left: 25%;
   border-left: 1px solid #BFBFC2;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.14);
-  background: white; }
+  background: white;
+  overflow: auto; }
   #main-content.col-xs-12 {
     left: 0; }
 
