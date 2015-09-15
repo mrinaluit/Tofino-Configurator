@@ -61,7 +61,8 @@ function init() {
                  locationObjectName: "BODY",
                  locationSpot: go.Spot.Center,
                  selectionObjectName: "BODY",
-                 contextMenu: nodeMenu
+                 contextMenu: nodeMenu,
+                 selectable: false
              },
 
              new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
@@ -494,24 +495,40 @@ function init() {
                  routing: go.Link.AvoidsNodes,
                  corner: 4,
                  curve: go.Link.JumpGap,
-                 reshapable: true,
-                 resegmentable: true,
-                 relinkableFrom: true,
-                 relinkableTo: true
+                 reshapable: false,
+                 resegmentable: false,
+                 relinkableFrom: false,
+                 relinkableTo: false,
+                 selectable: false
              },
              new go.Binding("points").makeTwoWay(),
-             $(go.Shape, {
-                 stroke: "#6E6E6E",
-                 strokeWidth: 2
-             },
-             new go.Binding("stroke", "linkColor"))
-         );
+             $(go.Shape, 
+                {
+                    stroke: "#9D9D9D",
+                    strokeWidth: 2,
+                    strokeDashArray: [0, 0]
+                },
+                new go.Binding("stroke", "linkColor"),
+                new go.Binding("strokeDashArray", "redundant", function(d) { return d === true ? [5, 10] : [0, 0] }),
+                new go.Binding("stroke", "status", function(s) { 
+                    if (s === 'warning') { return "#F6D04F"; }
+                    else if (s === 'error') { return "#F64F4F"; }
+                    else if (s === 'inactive') { return "#DBDBDD" }
+                    else { return "#9D9D9D"; }
+                })
+            )
+    );
 
      // load the diagram from JSON data
      load();
 
      // set default zoom factor
      myDiagram.commandHandler.zoomFactor = 1.5;
+
+     myDiagram.toolManager.dragSelectingTool.isEnabled = false
+
+     myDiagram.commandHandler.zoomToFit();
+
  }
 
  // This custom-routing Link class tries to separate parallel links from each other.
