@@ -525,8 +525,10 @@ function init() {
      // set default zoom factor
      myDiagram.commandHandler.zoomFactor = 1.5;
 
+     // disable dragging of devices
      myDiagram.toolManager.dragSelectingTool.isEnabled = false
 
+     // zoom topology to fit on load
      myDiagram.commandHandler.zoomToFit();
 
  }
