@@ -85,7 +85,7 @@ function init() {
 				 
                  //To display left image
                  $(go.Panel, "Auto",{ margin:(0,0,0,1), alignment: go.Spot.Left, width: 60, height: 60, background:"#e7e7e7" },
-			     $(go.Shape, "Rectangle", {margin:(0,0,0,0), stroke: "#c4c4c4",fill: "#fafafa",minSize: new go.Size(60, 60) }),							  
+			     $(go.Shape, "Rectangle", {margin:(0,0,0,0), stroke: "#c4c4c4",fill: "#fafafa",minSize: new go.Size(60, 60) }),
 	             $(go.Picture,{ alignment: go.Spot.Left}, {margin:(7,0,0,0), width: 59, height: 58},
 				   new go.Binding("source", "img"))		  
                  ) ,
@@ -139,17 +139,13 @@ function init() {
                      toolTip: $(go.Adornment, "Auto",{ background: "white",     mouseOver: function (e, obj) { showPoint(obj.part.location); }},
                               
 							  $(go.Shape, {margin: 1,stroke: "#d3d8db",fill: "white", width: 320}),
-							  
 
                               //$(go.RowColumnDefinition,{ column: 1, sizing: go.RowColumnDefinition.None }),
-
 
                               $(go.Panel, "Vertical", {
                                      width: 320,
                                      defaultStretch: go.GraphObject.Horizontal
-                                 },
-								 
-								 
+                              },
 								
 							$(go.Panel, "Auto",{ margin:0, width:320, height: 30},
 							 $(go.Shape, {
@@ -157,12 +153,12 @@ function init() {
 								 stroke:null,
 								 fill: "#fafafa" //"#f2f0f0"
 								 
-                             }),$(go.TextBlock, {
+                              }), $(go.TextBlock, {
                                      margin: 4,
                                      alignment: go.Spot.Center,
                                      stroke: "#031c36",
                                      font: "bold 15px 'Source Sans Pro',sans-serif"
-                                 }, new go.Binding("text", "Chassis"))),
+                                   }, new go.Binding("text", "Chassis"))),
 							
 							    //bottom Border
 								$(go.Panel, "Auto",{ margin:0, width:320, height:0.5,background:"#cdcdce"}),
@@ -176,16 +172,15 @@ function init() {
                                      stroke: "#031c36",
                                      font: "bold 11px 'Source Sans Pro',sans-serif",
 									 text: "STATS"
-                                 }),
+                                   }),
 
-                                 //bottom Border
+                                //bottom Border
 								$(go.Panel, "Auto",{ margin:0, width:320, height:0.5,background:"#cdcdce"}),
-								 
 							
 							  //Space
 	                          $(go.Panel, "Auto",{ margin:0, width:320, height:10}), 
-								 
-							  //Information content 
+							  
+							  //Information content
 							  $(go.Panel, "Horizontal",{ margin:0, width:320},
 
 							  $(go.Panel, "Vertical",{ margin:5, alignment: go.Spot.Left, width: 150,background:null},
@@ -197,7 +192,6 @@ function init() {
                                      text: "On",
                                      font: "18px 'Source Sans Pro',sans-serif"
                                  }, new go.Binding("text", "AutoNeg")),
-								
 								
 								 $(go.TextBlock, {
                                      margin: 2,
@@ -226,8 +220,7 @@ function init() {
 									 text: "TEMPERATURE"
                                  }),
 								  
-								  
-								  //Space
+                                   //Space
 	                            $(go.Panel, "Auto",{ margin:0, width:320, height:10}), 
 								  
 								  $(go.TextBlock, {
@@ -279,7 +272,6 @@ function init() {
                                      font: "18px 'Source Sans Pro',sans-serif"
                                  }, new go.Binding("text", "NoOfUsers")),
 								
-								
 								 $(go.TextBlock, {
                                      margin: 2,
                                      alignment: go.Spot.Left,
@@ -288,10 +280,8 @@ function init() {
 									 text: "NO OF USERS"
                                  }),
 								 
-								 
 								 //Space
-	                            $(go.Panel, "Auto",{ margin:0, width:320, height:10}), 
-								 
+	                            $(go.Panel, "Auto",{ margin:0, width:320, height:10}),  
 								 
 								 $(go.TextBlock, {
                                      margin: 2,
@@ -307,7 +297,6 @@ function init() {
                                      font: "bold 10px 'Source Sans Pro',sans-serif bold",
 									 text: "PRODUCT"
                                  }),
-								  
 								  
 								  //Space
 	                              $(go.Panel, "Auto",{ margin:0, width:320, height:10}), 
@@ -331,22 +320,12 @@ function init() {
 							  
 							  ),
 								 
-								 
-								//Space
-	                            $(go.Panel, "Auto",{ margin:0, width:320, height:10})  
-								 
-								
-
+							  //Space
+	                          $(go.Panel, "Auto",{ margin:0, width:320, height:10})  	 
                              )
-
                          ) // end of Adornment
-
                  }
                  //Tooltip End
-				
-				
-				
-				
 				
              ), // end Auto Panel body
 
@@ -504,6 +483,7 @@ function init() {
                  stroke: "#6E6E6E",
                  strokeWidth: 2
              },
+             new go.Binding("strokeDashArray", "strokeDashArray"),
              new go.Binding("stroke", "linkColor"))
          );
 
