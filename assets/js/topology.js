@@ -102,7 +102,7 @@ function init() {
                             stroke: "#0E3047",
                             height: 20
                         }, 
-                        new go.Binding("text", "Chassis")
+                        new go.Binding("text", "Name")
                     ),
                     $(go.TextBlock, 
                         { 
