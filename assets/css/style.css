@@ -6225,12 +6225,19 @@ input[type="text"].i-search {
       z-index: 1000; }
       .main-content .view-topology .zoom-controls .control {
         display: block;
-        font-size: 2em;
-        font-weight: bold;
-        line-height: 1em;
-        margin: 0 0 -1px 0;
-        height: 40px;
-        width: 40px; }
+        margin: 0 0 -10px 0;
+        height: 46px;
+        width: 46px;
+        background-size: contain;
+        cursor: pointer; }
+        .zoom-controls .control.zoom-out-icon {
+          background-image: url("../img/zoom_out.png"); }
+          .zoom-controls .control.zoom-out-icon:hover {
+            background-image: url("../img/zoom_out_hover.png"); }
+        .zoom-controls .control.zoom-in-icon {
+          background-image: url("../img/zoom_in.png"); }
+          .zoom-controls .control.zoom-in-icon:hover {
+            background-image: url("../img/zoom_in_hover.png"); }
   .main-content .view-map {
     min-height: 1000px;
     background: url("../img/map.jpg"); }
