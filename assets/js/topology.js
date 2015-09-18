@@ -680,7 +680,7 @@ function init() {
      myDiagram.commitTransaction("colorPort");
  }
 
- diagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+ // diagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
 
  //Save the model to / load it from JSON text shown on the page itself, not in a database.
  function save() {
@@ -693,32 +693,10 @@ function init() {
      myDiagram.id = "one";
  }
 
+setTimeout(function() {
+  myDiagram.addDiagramListener('ViewportBoundsChanged', function(e) {
+    console.log(myDiagram.scale);
+    if (myDiagram.scale >= 1) return false;
+  });
+}, 0)
 
-  
-  //Enable/disable zoom effects
-  function enable(name, ok) {
-    var button = document.getElementById(name);
-    if (button) button.disabled = !ok;
-  }
-  // enable or disable all command buttons
-  function enableAll() {
-    var cmdhnd = diagram.commandHandler;
-	enable("ZoomIn", cmdhnd.canIncreaseZoom());
-	enable("ZoomOut", cmdhnd.canDecreaseZoom());
-  }
-  // notice whenever the selection may have changed
-  diagram.addDiagramListener("ChangedSelection", function(e) {
-    enableAll();
-  });
-  // notice when the Paste command may need to be reenabled
-  diagram.addDiagramListener("ClipboardChanged", function(e) {
-    enableAll();
-  });
-  // notice whenever a transaction or undo/redo has occurred
-  diagram.model.addChangedListener(function(e) {
-    if (e.isTransactionFinished) enableAll();
-  });
-  // perform initial enablements after everything has settled down
-  setTimeout(enableAll, 1);
-
-  myDiagram = diagram;  // make the diagram accessible to button onclick handlers
