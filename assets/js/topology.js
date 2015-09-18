@@ -479,12 +479,20 @@ function init() {
                  relinkableTo: true
              },
              new go.Binding("points").makeTwoWay(),
-             $(go.Shape, {
-                 stroke: "#6E6E6E",
-                 strokeWidth: 2
-             },
-             new go.Binding("strokeDashArray", "strokeDashArray"),
-             new go.Binding("stroke", "linkColor"))
+             $(go.Shape, 
+                {
+                     stroke: "#9C27B0",
+                     strokeWidth: 2,
+                     strokeDashArray: [0, 0]
+                 },
+                 new go.Binding("strokeDashArray", "redundant", function(d) { return d === true ? [4, 2] : [0, 0] }),
+                 new go.Binding("stroke", "status", function(s) { 
+                    if (s === 'warning') { return "#F6D04F"; }
+                    else if (s === 'error') { return "#F64F4F"; }
+                    else if (s === 'inactive') { return "#DBDBDD" }
+                    else if (s === 'ok') { return "#9D9D9D"; }
+                 })
+             )
          );
 
      // load the diagram from JSON data
