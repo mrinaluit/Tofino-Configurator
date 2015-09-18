@@ -27,6 +27,9 @@ $(document).ready(function(){
 			clicked.addClass('open');
 			mainContent.toggleClass('col-xs-12').toggleClass( 'col-sm-9' );
 			drawer.toggleClass('hidden');
+
+			// refresh the diagram to show previously hidden elements
+			myDiagram.rebuildParts();
 		}
 	});
 	
