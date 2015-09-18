@@ -61,7 +61,8 @@ function init() {
                  locationObjectName: "BODY",
                  locationSpot: go.Spot.Center,
                  selectionObjectName: "BODY",
-                 contextMenu: nodeMenu
+                 contextMenu: nodeMenu,
+                 selectable: false
              },
 
              new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
@@ -476,7 +477,8 @@ function init() {
                  reshapable: true,
                  resegmentable: true,
                  relinkableFrom: true,
-                 relinkableTo: true
+                 relinkableTo: true,
+                 selectable: false
              },
              new go.Binding("points").makeTwoWay(),
              $(go.Shape, 
@@ -500,6 +502,10 @@ function init() {
 
      // set default zoom factor
      myDiagram.commandHandler.zoomFactor = 1.5;
+
+     // disable dragging of devices
+     myDiagram.toolManager.dragSelectingTool.isEnabled = false;
+
  }
 
  // This custom-routing Link class tries to separate parallel links from each other.
@@ -649,8 +655,6 @@ function init() {
      myDiagram.commitTransaction("colorPort");
  }
 
- diagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
-
  //Save the model to / load it from JSON text shown on the page itself, not in a database.
  function save() {
      document.getElementById("mySavedModel").value = myDiagram.model.toJson();
@@ -661,33 +665,3 @@ function init() {
      myDiagram.model = go.Model.fromJson(document.getElementById("mySavedModel").value);
      myDiagram.id = "one";
  }
-
-
-  
-  //Enable/disable zoom effects
-  function enable(name, ok) {
-    var button = document.getElementById(name);
-    if (button) button.disabled = !ok;
-  }
-  // enable or disable all command buttons
-  function enableAll() {
-    var cmdhnd = diagram.commandHandler;
-	enable("ZoomIn", cmdhnd.canIncreaseZoom());
-	enable("ZoomOut", cmdhnd.canDecreaseZoom());
-  }
-  // notice whenever the selection may have changed
-  diagram.addDiagramListener("ChangedSelection", function(e) {
-    enableAll();
-  });
-  // notice when the Paste command may need to be reenabled
-  diagram.addDiagramListener("ClipboardChanged", function(e) {
-    enableAll();
-  });
-  // notice whenever a transaction or undo/redo has occurred
-  diagram.model.addChangedListener(function(e) {
-    if (e.isTransactionFinished) enableAll();
-  });
-  // perform initial enablements after everything has settled down
-  setTimeout(enableAll, 1);
-
-  myDiagram = diagram;  // make the diagram accessible to button onclick handlers
