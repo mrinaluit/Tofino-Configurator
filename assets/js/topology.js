@@ -7,15 +7,16 @@ function init() {
             {
                 initialContentAlignment: go.Spot.Center,
                 "undoManager.isEnabled": true,
-                maxScale: 3.0,
-                minScale: 0.4,
+				 maxScale:3,
+                 minScale:0.3,
                 click: onSelectionChanged,
+				initialAutoScale: go.Diagram.Uniform,
                 // when a node is selected, show popup 
                 nodeSelectionAdornmentTemplate:
                     $(go.Adornment, "Auto",
                         $(go.Shape,
                             "RoundedRectangle", 
-                            {stroke: "#d3d8db",fill: "white", width: 320,margin:50},
+                            {stroke: "#d3d8db",fill: "white", width: 320,margin:new go.Margin(40, 0, 0, 120)},
                             new go.Binding("height", "Status", function(c) {
                                 switch (c) {
                                     case "Ok": 
@@ -300,6 +301,12 @@ function init() {
                 )
                 //End tooltip                 
              });
+		 
+		 
+		 
+		     //Set default zoom  allowZoom
+            myDiagram.commandHandler.increaseZoom(.7);
+		 
 
      // when the document is modified, add a "*" to the title and enable the "Save" button
      myDiagram.addDiagramListener("Modified", function(e) {
