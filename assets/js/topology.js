@@ -7,7 +7,7 @@ function init() {
             {
                 initialContentAlignment: go.Spot.Center,
                 "undoManager.isEnabled": true,
-                maxScale: 3.0,
+                maxScale: 2.7,
                 minScale: 0.4,
                 click: onSelectionChanged,
                 initialAutoScale: go.Diagram.Uniform,
@@ -253,6 +253,10 @@ function init() {
          } else {
              if (idx >= 0) document.title = document.title.substr(0, idx);
          }
+     });
+
+     myDiagram.addDiagramListener("BackgroundDoubleClicked", function() {
+        myDiagram.commandHandler.increaseZoom();
      });
 
     //context menu for each Node
