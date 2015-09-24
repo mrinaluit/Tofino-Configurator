@@ -31,21 +31,20 @@ function init() {
                             })
                         ),
                         $(go.Panel, 
-                            "Vertical", 
-                            { width: 320 },
+                            "Vertical",
+                            // device name
                             $(go.Panel, 
                                 "Auto",
                                 { margin:0, width:320, height: 30},
-                                $(go.Shape, { margin: 1, stroke:null, fill: "#fafafa" }),
+                                $(go.Shape, { margin: 0, stroke:null, fill: "#fafafa" }),
                                 $(go.TextBlock, 
-                                    { margin: 4, alignment: go.Spot.Center, stroke: "#031c36", font: "bold 15px 'Source Sans Pro',sans-serif" }, 
-                                    new go.Binding("text", "Chassis")
+                                    { margin: 0, alignment: go.Spot.Center, stroke: "#031c36", font: "bold 1em 'Source Sans Pro',sans-serif" }, 
+                                    new go.Binding("text", "Name")
                                 )
                             ),
-                            //bottom Border
+                            // bottom Border
                             $(go.Panel, "Auto",{ margin:0, width:320, height:0.5,background:"#cdcdce"}),
-                            //Top Space
-                            $(go.Panel, "Auto",{ margin:0, width:320, height:5}),
+                            // device activity
                             $(go.Panel, 
                                 "Vertical",
                                 { margin:0, width:320,background:null},
@@ -61,16 +60,16 @@ function init() {
                                 //Top Space
                                 $(go.Panel, "Auto",{ margin:0, width:320, height:1}),
                                 $(go.TextBlock, {
-                                    margin: 4,
+                                    margin: 10,
                                     alignment: go.Spot.Left,
                                     stroke: "#031c36",
-                                    font: "bold 11px 'Source Sans Pro',sans-serif",
+                                    font: "bold 0.8em 'Source Sans Pro',sans-serif",
                                     text: "LATEST ACTIVITY"
                                 }),
                                 //Top Space
                                 $(go.Panel, "Auto",{ margin:0, width:320, height:4}),
                                 $(go.Panel, "Vertical",
-                                    { margin:0, width:320,background:"#fcf2f3"},
+                                    { margin: new go.Margin(0, 0, 10, 0), width:320,background:"#fcf2f3"},
                                     new go.Binding("background", "Status", function(c) {
                                         switch (c) {
                                             case "Warning":
@@ -82,7 +81,8 @@ function init() {
                                         }
                                     }),
                                     //bottom Border
-                                    $(go.Panel, "Auto",{ margin:0, width:320, height:0.5},
+                                    $(go.Panel, "Auto",
+                                        { margin: new go.Margin(0, 0, 10, 0), width:320, height:0.5},
                                         new go.Binding("background", "Status", function(c) {
                                             switch (c) {
                                                 case "Warning":
@@ -95,57 +95,35 @@ function init() {
                                         })
                                     ),
                                     //Title
-                                    $(go.Panel, "Horizontal",{ margin:0, width:320},
-                                        $(go.TextBlock, 
-                                            {
-                                                margin: 5,
-                                                alignment: go.Spot.Left,
-                                                font: "bold 15px 'Source Sans Pro',sans-serif",
-                                                text:"test"
-                                            },
-                                            new go.Binding("stroke", "Status", function(c) {
-                                                switch (c) {
-                                                    case "Warning":
-                                                        return "#f8b023";
-                                                        break;
-                                                    case "Error":
-                                                        return "red";
-                                                        break;
-                                                }
-                                            }),
-                                            new go.Binding("text", "Chassis")
-                                        ),
-                                        //Title
-                                        $(go.TextBlock, 
-                                            {
-                                                margin: 5,
-                                                alignment: go.Spot.Left,
-                                                font: "bold 13px 'Source Sans Pro',sans-serif",
-                                                text:"Exceeded the threshold temperature."
-                                            },
-                                            new go.Binding("stroke", "Status", function(c) {
-                                                switch (c) {
-                                                    case "Warning":
-                                                        return "#f8b023";
-                                                        break;
-                                                    case "Error":
-                                                        return "red";
-                                                        break;
-                                                }
-                                            })
-                                        )   
+                                    $(go.TextBlock, 
+                                        {
+                                            margin: new go.Margin(0, 10, 10, 10),
+                                            alignment: go.Spot.Left,
+                                            font: "bold 13px 'Source Sans Pro',sans-serif",
+                                            text:"Exceeded the threshold temperature."
+                                        },
+                                        new go.Binding("stroke", "Status", function(c) {
+                                            switch (c) {
+                                                case "Warning":
+                                                    return "#f8b023";
+                                                    break;
+                                                case "Error":
+                                                    return "red";
+                                                    break;
+                                            }
+                                        })
                                     ),
                                     //Details
                                     $(go.TextBlock, {
-                                        margin: 5,
+                                        margin: new go.Margin(0, 10, 10, 10),
                                         alignment: go.Spot.Left,
                                         stroke: "#031c36",
-                                        font: "bold 14px 'Source Sans Pro',sans-serif",
-                                        text:"Temperature for the device exceeded the threshold temperature ranges for 23 minutes, but did not near the maximum rated temperature."
+                                        font: "1em 'Source Sans Pro',sans-serif",
+                                        text:"Temperature for the device exceeded the normal ranges for 23 minutes, but did not near the maximum-rated temperature."
                                     }),
                                     $("Button",
                                         { alignment: go.Spot.Right,click: onSelectionChanged, margin: 10},
-                                        $(go.TextBlock, "More info",{ stroke:"black",background:"white",font: "bold 15px 'Source Sans Pro',sans-serif"})
+                                        $(go.TextBlock, "More info",{ stroke:"black",background:"white",font: "1em 'Source Sans Pro',sans-serif"})
                                     ),
                                     //Space
                                     $(go.Panel, "Auto",{ margin:0, width:320, height:4}),
@@ -164,10 +142,11 @@ function init() {
                                     )
                                 )
                             ),
+                            // device stats
                             //Top Space
                             $(go.Panel, "Auto",{ margin:0, width:320, height:10}),
                             $(go.TextBlock, {
-                                margin: 4,
+                                margin: new go.Margin(0, 0, 10, 10),
                                 alignment: go.Spot.Left,
                                 stroke: "#031c36",
                                 font: "bold 11px 'Source Sans Pro',sans-serif",
@@ -179,127 +158,88 @@ function init() {
                             //Space
                             $(go.Panel, "Auto",{ margin:0, width:320, height:10}), 
                             //Information content 
-                            $(go.Panel, "Horizontal",{ margin:0, width:320},
-                            $(go.Panel, "Vertical",
-                                { margin:5, alignment: go.Spot.Left, width: 150,background:null},
-                                $(go.TextBlock, 
-                                    {
-                                        margin: 2,
+                            $(go.Panel, "Horizontal",
+                                { margin: 0, width:320},
+                                $(go.Panel, "Vertical",
+                                    { margin: new go.Margin(10, 5, 10, 10), alignment: go.Spot.Left, width: 150,background:null},
+                                    $(go.TextBlock, 
+                                        {
+                                            margin: 0,
+                                            alignment: go.Spot.Left,
+                                            stroke: "black",
+                                            text: "2340",
+                                            font: "3em 'Source Sans Pro',sans-serif"
+                                        }, 
+                                        new go.Binding("text", "Temperature")
+                                    ),
+                                    $(go.TextBlock, {
+                                        margin: new go.Margin(3, 0, 0, 0),
+                                        alignment: go.Spot.Left,
+                                        stroke: "#031c36",
+                                        font: "bold 0.8em 'Source Sans Pro',sans-serif",
+                                        text: "DATA TRANSFERRED (MB)"
+                                    }),
+                                    //Space
+                                    $(go.Panel, "Auto",{ margin:0, width:320, height:30}), 
+                                    $(go.TextBlock, {
+                                        margin: 0,
                                         alignment: go.Spot.Left,
                                         stroke: "black",
-                                        text: "1",
-                                        font: "18px 'Source Sans Pro',sans-serif"
-                                    }, 
-                                    new go.Binding("text", "AutoNeg")
+                                        text: "16",
+                                        font: "3em 'Source Sans Pro',sans-serif",
+                                    }),
+                                    $(go.TextBlock, {
+                                        margin: new go.Margin(3, 0, 0, 0),
+                                        alignment: go.Spot.Left,
+                                        stroke: "#031c36",
+                                        font: "bold 0.8em 'Source Sans Pro',sans-serif bold",
+                                        text: "COLLISIONS & ERRORS"
+                                    })
                                 ),
-                                $(go.TextBlock, {
-                                    margin: 2,
-                                    alignment: go.Spot.Left,
-                                    stroke: "#031c36",
-                                    font: "bold 10px 'Source Sans Pro',sans-serif",
-                                    text: "ALERTS"
-                                }),
-                                //Space
-                                $(go.Panel, "Auto",{ margin:0, width:320, height:10}), 
-                                $(go.TextBlock, 
-                                    {
-                                        margin: 2,
+                                $(go.Panel, "Vertical",
+                                    { margin: new go.Margin(10, 10, 10, 5), alignment: go.Spot.Right, width: 160,background:null},
+                                    $(go.TextBlock, 
+                                        {
+                                            margin: 0,
+                                            alignment: go.Spot.Left,
+                                            stroke: "black",
+                                            font: "3em 'Source Sans Pro',sans-serif",
+                                            text:"100",
+                                        }, 
+                                        new go.Binding("text", "uptime")
+                                    ),
+                                    $(go.TextBlock, {
+                                        margin: new go.Margin(3, 0, 0, 0),
+                                        alignment: go.Spot.Left,
+                                        stroke: "#031c36",
+                                        font: "bold 0.8em 'Source Sans Pro',sans-serif bold",
+                                        text: "UPTIME (%)"
+                                    }),
+                                    //Space
+                                    $(go.Panel, "Auto",{ margin:0, width:320, height:30}), 
+                                    $(go.TextBlock, {
+                                        margin: 0,
                                         alignment: go.Spot.Left,
                                         stroke: "black",
-                                        text: "2340",
-                                        font: "18px 'Source Sans Pro',sans-serif"
-                                    }, 
-                                    new go.Binding("text", "Temperature")
-                                ),
-                                $(go.TextBlock, {
-                                    margin: 2,
-                                    alignment: go.Spot.Left,
-                                    stroke: "#031c36",
-                                    font: "bold 10px 'Source Sans Pro',sans-serif",
-                                    text: "DATA TRANSFERRED (MB)"
-                                }),
-                                //Space
-                                $(go.Panel, "Auto",{ margin:0, width:320, height:10}), 
-                                $(go.TextBlock, {
-                                    margin: 2,
-                                    alignment: go.Spot.Left,
-                                    stroke: "black",
-                                    text: "16",
-                                    font: "18px 'Source Sans Pro',sans-serif",
-                                }),
-                                $(go.TextBlock, {
-                                    margin: 2,
-                                    alignment: go.Spot.Left,
-                                    stroke: "#031c36",
-                                    font: "bold 10px 'Source Sans Pro',sans-serif bold",
-                                    text: "COLLISIONS & ERRORS"
-                                })
-                            ),
-                            $(go.Panel, "Vertical",
-                                { margin:0, alignment: go.Spot.Right, width: 160,background:null},
-                                $(go.TextBlock, 
-                                    {
-                                        margin: 2,
-                                        alignment: go.Spot.Left,
-                                        stroke: "black",
-                                        text: "84",
-                                        font: "18px 'Source Sans Pro',sans-serif"
-                                    }, 
-                                    new go.Binding("text", "NoOfUsers")
-                                ),
-                                $(go.TextBlock, {
-                                    margin: 2,
-                                    alignment: go.Spot.Left,
-                                    stroke: "#031c36",
-                                    font: "bold 10px 'Source Sans Pro',sans-serif bold",
-                                    text: "AVG TEMPERATURE (F)"
-                                }),
-                                //Space
-                                $(go.Panel, "Auto", { margin:0, width:320, height:10}), 
-                                $(go.TextBlock, 
-                                    {
-                                        margin: 2,
-                                        alignment: go.Spot.Left,
-                                        stroke: "black",
-                                        font: "18px 'Source Sans Pro',sans-serif",
-                                        text:"100",
-                                    }, 
-                                    new go.Binding("text", "uptime")
-                                ),
-                                $(go.TextBlock, {
-                                    margin: 2,
-                                    alignment: go.Spot.Left,
-                                    stroke: "#031c36",
-                                    font: "bold 10px 'Source Sans Pro',sans-serif bold",
-                                    text: "UPTIME (%)"
-                                }),
-                                //Space
-                                $(go.Panel, "Auto",{ margin:0, width:320, height:10}), 
-                                $(go.TextBlock, 
-                                    {
-                                        margin: 2,
-                                        alignment: go.Spot.Left,
-                                        stroke: "black",
-                                        font: "18px 'Source Sans Pro',sans-serif",
+                                        font: "3em 'Source Sans Pro',sans-serif",
                                         text:"97"
-                                    }, 
-                                    new go.Binding("text", "FirmwareVersion")
-                                ),
-                                $(go.TextBlock, {
-                                    margin: 2,
-                                    alignment: go.Spot.Left,
-                                    stroke: "#031c36",
-                                    font: "bold 10px 'Source Sans Pro',sans-serif bold",
-                                    text: "AVG LATENCY (ms)"
-                                })
-                            )
-                        ),
-                        //Space
-                        $(go.Panel, "Auto",{ margin:0, width:320, height:10})  
+                                    }),
+                                    $(go.TextBlock, {
+                                        margin: new go.Margin(3, 0, 0, 0),
+                                        alignment: go.Spot.Left,
+                                        stroke: "#031c36",
+                                        font: "bold 0.8em 'Source Sans Pro',sans-serif bold",
+                                        text: "AVG LATENCY (ms)"
+                                    })
+                                )
+                            ),
+                            //Space
+                            $(go.Panel, "Auto",{ margin:0, width:320, height:10})  
+                        )
                     )
-                )
                 //End tooltip                 
-             });
+                }
+            );
 
      // when the document is modified, add a "*" to the title and enable the "Save" button
      myDiagram.addDiagramListener("Modified", function(e) {
@@ -355,7 +295,7 @@ function init() {
                 locationSpot: go.Spot.Center,
                 selectionObjectName: "BODY",
                 contextMenu: nodeMenu,
-                selectable: true
+                movable: false
             },
             new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
             //The body
@@ -770,18 +710,20 @@ function onSelectionChanged(e) {
   // Update the HTML elements of the currently selected node, if any
   function updateProperties(data) {
     if (data === null) {
-      document.getElementById("propertiesPanel").style.display = "none";
-      document.getElementById("Chassis").innerHTML = "";
-      document.getElementById("Status").innerHTML = "";
+      document.getElementById("activity-detail").style.display = "none";
+      document.getElementById("stats-sub-sections").style.display = "block";
+      // document.getElementById("Chassis").innerHTML = "";
+      // document.getElementById("Status").innerHTML = "";
     } else if(data.Status == "Error") {
-      document.getElementById("propertiesPanel").style.display = "block";
-      document.getElementById("Chassis").innerHTML = data.Chassis || "";
-      document.getElementById("Status").innerHTML = '<img src="assets/img/LED-red@2x.png" width="20" height="20">' || "";
+      document.getElementById("activity-detail").style.display = "block";
+      document.getElementById("stats-sub-sections").style.display = "none";
+      // document.getElementById("Chassis").innerHTML = data.Chassis || "";
+      // document.getElementById("Status").innerHTML = '<img src="assets/img/LED-red@2x.png" width="20" height="20">' || "";
     }
-    else if(data.Status == "Warning")
-    {
-     document.getElementById("propertiesPanel").style.display = "block";
-     document.getElementById("Chassis").innerHTML = data.Chassis || "";
-     document.getElementById("Status").innerHTML = '<img src="assets/img/LED-yellow@2x.png" width="20" height="20">' || "";
+    else if(data.Status == "Warning") {
+     document.getElementById("activity-detail").style.display = "block";
+     document.getElementById("stats-sub-sections").style.display = "none";
+     // document.getElementById("Chassis").innerHTML = data.Chassis || "";
+     // document.getElementById("Status").innerHTML = '<img src="assets/img/LED-yellow@2x.png" width="20" height="20">' || "";
     }
   }

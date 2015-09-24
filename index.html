@@ -91,151 +91,231 @@
 	<div class="row">
 	
 		<!--   S T A T S   -->
-		
-		<div id="col-stats" class="col-sm-3 col-xs-12">
-			<div id="sub-sec-overview" class="sub-sec">
-				<div class="sub-sec-title">
-					<h3>Network Overview</h3>
-				</div>
-				<div class="sub-sec-content">
-					<div class="stat-counts clearfix">
-						<div class="stat-count">
-							<div class="stat-wrapper">
-								<div class="stat-value">1</div>
-								<div class="stat-unit">Failure</div>
-							</div>
-						</div>
-						<div class="stat-count">
-							<div class="stat-wrapper">
-								<div class="stat-value">3</div>
-								<div class="stat-unit">Warnings</div>
-							</div>
-						</div>
-						<div class="stat-count">
-							<div class="stat-wrapper">
-								<div class="stat-value">782</div>
-								<div class="stat-unit">Device Online</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div><!-- sub-sec -->
-			
-			<div id="sub-sec-recent" class="sub-sec">
-				<div class="sub-sec-title">
-					<h3>Recent Activity</h3>
-					<div class="dropdown">
-						<button class="dropdown-toggle" type="button" id="sub-sec-recent-status" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">All Statuses<span class="caret"></span></button>
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="sub-sec-recent-status">
-							<li><a href="#">Action</a></li>
-							<li><a href="#">Another action</a></li>
-							<li><a href="#">Something else here</a></li>
-							<li><a href="#">Separated link</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="sub-sec-content">
-					<div class="list-events">
-						<div class="list-event comment">
-							<div class="list-event-type">New Comment</div>
-							<div class="list-event-desc">on FRBSMKEE-SE-TRK-SWITCH</div>
-						</div>
-						<div class="list-event traffic">
-							<div class="list-event-type">Traffic Alert</div>
-							<div class="list-event-desc">220mbps on MACH-4002-48G-L3P </div>
-						</div>
-						<div class="list-event config-wifi">
-							<div class="list-event-type">WiFi Config Change</div>
-							<div class="list-event-desc">3 parameters on ZONE-2-CONTROL</div>
-						</div>
-						<div class="list-event alert-latency">
-							<div class="list-event-type">Latency Alert</div>
-							<div class="list-event-desc"> 30ms on 3 switches</div>
-						</div>
-						<div class="list-event alert-latency">
-							<div class="list-event-type">Latency Alert</div>
-							<div class="list-event-desc">18ms on MACH-4002-48G-L3P</div>
-						</div>
-						<div class="list-event check-security">
-							<div class="list-event-type">Security Check</div>
-							<div class="list-event-desc">Security Check passed - 3 tips</div>
-						</div>
-						<div class="list-event comment">
-							<div class="list-event-type">New Comment</div>
-							<div class="list-event-desc">on FRBSMKEE-SE-TRK-SWITCH</div>
-						</div>
-						<div class="list-event traffic">
-							<div class="list-event-type">Traffic Alert</div>
-							<div class="list-event-desc">220mbps on MACH-4002-48G-L3P </div>
-						</div>
-						<div class="list-event config-wifi">
-							<div class="list-event-type">WiFi Config Change</div>
-							<div class="list-event-desc">3 parameters on ZONE-2-CONTROL</div>
-						</div>
-						<div class="list-event alert-latency">
-							<div class="list-event-type">Latency Alert</div>
-							<div class="list-event-desc"> 30ms on 3 switches</div>
-						</div>
-						<div class="list-event alert-latency">
-							<div class="list-event-type">Latency Alert</div>
-							<div class="list-event-desc">18ms on MACH-4002-48G-L3P</div>
-						</div>
-						<div class="list-event check-security">
-							<div class="list-event-type">Security Check</div>
-							<div class="list-event-desc">Security Check passed - 3 tips</div>
-						</div>
-					</div>
-				</div>
-			</div><!-- sub-sec -->
 
-			<div id="sub-sec-metrics" class="sub-sec">
+		<div id="col-stats" class="col-sm-3 col-xs-12">
+
+			<div id="activity-detail" class="sub-sec" style="display:none; z-index:9000; position:absolute; top:0; right:15px; bottom:0; left:15px;">
 				<div class="sub-sec-title">
-					<h3>Key Metrics</h3>
-					<div class="dropdown">
-						<button id="sub-sec-metrics-period" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Last 7 Days<span class="caret"></span></button>
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="sub-sec-metrics-period">
-							<li><a href="#">Last Hour</a></li>
-							<li><a href="#">Last 7 Days</a></li>
-							<li><a href="#">Last Month</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="#">Custom</a></li>
-						</ul>
+					<div style="position:absolute; top:15px; left:15px;">< Back</div>
+					<h3 style="text-align:center;">Activity Detail</h3>
+				</div>
+				<div class="sub-sec-content" style="overflow:auto; position:absolute; top:54px; left:0; right:0; bottom:0; padding-bottom:61px;">
+					<div style="margin:0 20px; padding-bottom:10px; border-bottom:1px #E0E0E0 solid; text-align:center;">
+						<h2 style="font-size:2em; line-height:normal; letter-spacing:normal; padding:0 0 20px 0; margin:0; font-weight:300; color:#F64F4F;"><strong>4 devices offline</strong> in Body Shop because of overheating</h2>
+						<p><strong>7 hours ago</strong> to <strong>Now</strong> (Ongoing, 7 hours)</p>
+					</div>
+					<div style="margin:0 20px; padding-bottom:20px; border-bottom:1px #E0E0E0 solid;">
+						<h3>Affected Devices</h3>
+						<table style="width:100%;">
+							<thead>
+								<tr>
+									<td></td>
+									<td>Device</td>
+									<td></td>
+									<td>Max °F (24 hrs)</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="padding-right:10px;"><img src="assets/img/LED-red@2x.png" height="20"></td>
+									<td><img src="assets/img/pc_icon.png" height="30"></td>
+									<td>Shaft 3B Surface</td>
+									<td>184 °F</td>
+								</tr>
+								<tr>
+									<td style="padding-right:10px;"><img src="assets/img/LED-red@2x.png" height="20"></td>
+									<td><img src="assets/img/pc_icon.png" height="30"></td>
+									<td>Shaft 3B Surface</td>
+									<td>184 °F</td>
+								</tr>
+								<tr>
+									<td style="padding-right:10px;"><img src="assets/img/LED-red@2x.png" height="20"></td>
+									<td><img src="assets/img/pc_icon.png" height="30"></td>
+									<td>Shaft 3B Surface</td>
+									<td>184 °F</td>
+								</tr>
+								<tr>
+									<td style="padding-right:10px;"><img src="assets/img/LED-red@2x.png" height="20"></td>
+									<td><img src="assets/img/pc_icon.png" height="30"></td>
+									<td>Shaft 3B Surface</td>
+									<td>184 °F</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div style="margin:0 20px; padding-bottom:20px; border-bottom:1px #E0E0E0 solid;">
+						<h3>Cause</h3>
+						<p>Temperatures for the affected devices <strong>approached maximum-rated temperatures</strong>, and powered off to stop catastophic failure.</p>
+						<p><img src="assets/img/temp_graph.png" style="width:100%;"></p>
+					</div>
+					<div style="margin:0 20px; padding-bottom:20px; border-bottom:1px #E0E0E0 solid;">
+						<h3>Recommended Actions</h3>
+						<ol style="padding:0 20px;">
+							<li style="margin-bottom:10px;">
+								Check devices and surrounding enclosures to ensure the devices are receiving proper ventilation. 
+								<button style="display:block; margin-top:10px;">Show Me How</button>
+							</li>
+							<li>
+								Add or replace fans to improve temperature management.
+								<button style="display:block; margin-top:10px;">Show Me How</button>
+							</li>
+						</ol>
+						Still having problems? <u>More Resolutions</u>
 					</div>
 				</div>
-				<div class="sub-sec-page clearfix">
-					<div class="prev"><span class="page-label">Hardware</span></div>
-					<div class="current"><span class="page-label">Traffic</span></div>
-					<div class="next"><span class="page-label">Alerts</span></div>
+				<div style="position:absolute; bottom:0; padding:20px; background:#FFF; width:100%; border-top:1px #E0E0E0 solid;">
+					<img style="margin-top:-3px;" src="assets/img/icon-comment@2x.png" height="20"> 
+					<span style="padding-left:10px;">Add a note</span>
 				</div>
-				<div class="sub-sec-content">
-					<div class="stat-widgets">
-						<div class="stat-widget clearfix">
-							<div class="stat-value"><span class="stat-label">Bandwidth</span></div>
-							<div class="stat-graph"><div class="current-point"></div></div>
-							<div class="stat-now">
-								<div class="now-value">120</div>
-								<div class="stat-unit">mbps</div>
+			</div>
+
+			<div id="stats-sub-sections";>
+
+				<div id="sub-sec-overview" class="sub-sec">
+					<div class="sub-sec-title">
+						<h3>Network Overview</h3>
+					</div>
+					<div class="sub-sec-content">
+						<div class="stat-counts clearfix">
+							<div class="stat-count">
+								<div class="stat-wrapper">
+									<div class="stat-value">1</div>
+									<div class="stat-unit">Failure</div>
+								</div>
 							</div>
-						</div>
-						<div class="stat-widget clearfix">
-							<div class="stat-value"><span class="stat-label">Throughput</span></div>
-							<div class="stat-graph"><div class="current-point"></div></div>
-							<div class="stat-now">
-								<div class="now-value">87</div>
-								<div class="stat-unit">mbps</div>
+							<div class="stat-count">
+								<div class="stat-wrapper">
+									<div class="stat-value">3</div>
+									<div class="stat-unit">Warnings</div>
+								</div>
 							</div>
-						</div>
-						<div class="stat-widget red clearfix">
-							<div class="stat-value"><span class="stat-label">Latency</span></div>
-							<div class="stat-graph"><div class="current-point"></div></div>
-							<div class="stat-now">
-								<div class="now-value">20</div>
-								<div class="stat-unit">ms</div>
+							<div class="stat-count">
+								<div class="stat-wrapper">
+									<div class="stat-value">782</div>
+									<div class="stat-unit">Device Online</div>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div><!-- sub-sec -->
+				</div><!-- sub-sec -->
+				
+				<div id="sub-sec-recent" class="sub-sec">
+					<div class="sub-sec-title">
+						<h3>Recent Activity</h3>
+						<div class="dropdown">
+							<button class="dropdown-toggle" type="button" id="sub-sec-recent-status" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">All Statuses<span class="caret"></span></button>
+							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="sub-sec-recent-status">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li><a href="#">Separated link</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="sub-sec-content">
+						<div class="list-events">
+							<div class="list-event comment">
+								<div class="list-event-type">New Comment</div>
+								<div class="list-event-desc">on FRBSMKEE-SE-TRK-SWITCH</div>
+							</div>
+							<div class="list-event traffic">
+								<div class="list-event-type">Traffic Alert</div>
+								<div class="list-event-desc">220mbps on MACH-4002-48G-L3P </div>
+							</div>
+							<div class="list-event config-wifi">
+								<div class="list-event-type">WiFi Config Change</div>
+								<div class="list-event-desc">3 parameters on ZONE-2-CONTROL</div>
+							</div>
+							<div class="list-event alert-latency">
+								<div class="list-event-type">Latency Alert</div>
+								<div class="list-event-desc"> 30ms on 3 switches</div>
+							</div>
+							<div class="list-event alert-latency">
+								<div class="list-event-type">Latency Alert</div>
+								<div class="list-event-desc">18ms on MACH-4002-48G-L3P</div>
+							</div>
+							<div class="list-event check-security">
+								<div class="list-event-type">Security Check</div>
+								<div class="list-event-desc">Security Check passed - 3 tips</div>
+							</div>
+							<div class="list-event comment">
+								<div class="list-event-type">New Comment</div>
+								<div class="list-event-desc">on FRBSMKEE-SE-TRK-SWITCH</div>
+							</div>
+							<div class="list-event traffic">
+								<div class="list-event-type">Traffic Alert</div>
+								<div class="list-event-desc">220mbps on MACH-4002-48G-L3P </div>
+							</div>
+							<div class="list-event config-wifi">
+								<div class="list-event-type">WiFi Config Change</div>
+								<div class="list-event-desc">3 parameters on ZONE-2-CONTROL</div>
+							</div>
+							<div class="list-event alert-latency">
+								<div class="list-event-type">Latency Alert</div>
+								<div class="list-event-desc"> 30ms on 3 switches</div>
+							</div>
+							<div class="list-event alert-latency">
+								<div class="list-event-type">Latency Alert</div>
+								<div class="list-event-desc">18ms on MACH-4002-48G-L3P</div>
+							</div>
+							<div class="list-event check-security">
+								<div class="list-event-type">Security Check</div>
+								<div class="list-event-desc">Security Check passed - 3 tips</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- sub-sec -->
+
+				<div id="sub-sec-metrics" class="sub-sec">
+					<div class="sub-sec-title">
+						<h3>Key Metrics</h3>
+						<div class="dropdown">
+							<button id="sub-sec-metrics-period" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Last 7 Days<span class="caret"></span></button>
+							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="sub-sec-metrics-period">
+								<li><a href="#">Last Hour</a></li>
+								<li><a href="#">Last 7 Days</a></li>
+								<li><a href="#">Last Month</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Custom</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="sub-sec-page clearfix">
+						<div class="prev"><span class="page-label">Hardware</span></div>
+						<div class="current"><span class="page-label">Traffic</span></div>
+						<div class="next"><span class="page-label">Alerts</span></div>
+					</div>
+					<div class="sub-sec-content">
+						<div class="stat-widgets">
+							<div class="stat-widget clearfix">
+								<div class="stat-value"><span class="stat-label">Bandwidth</span></div>
+								<div class="stat-graph"><div class="current-point"></div></div>
+								<div class="stat-now">
+									<div class="now-value">120</div>
+									<div class="stat-unit">mbps</div>
+								</div>
+							</div>
+							<div class="stat-widget clearfix">
+								<div class="stat-value"><span class="stat-label">Throughput</span></div>
+								<div class="stat-graph"><div class="current-point"></div></div>
+								<div class="stat-now">
+									<div class="now-value">87</div>
+									<div class="stat-unit">mbps</div>
+								</div>
+							</div>
+							<div class="stat-widget red clearfix">
+								<div class="stat-value"><span class="stat-label">Latency</span></div>
+								<div class="stat-graph"><div class="current-point"></div></div>
+								<div class="stat-now">
+									<div class="now-value">20</div>
+									<div class="stat-unit">ms</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!-- sub-sec -->
+
+			</div>
 		</div><!-- col-stats -->
 		
 		
