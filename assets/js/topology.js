@@ -255,8 +255,9 @@ function init() {
          }
      });
 
-     myDiagram.addDiagramListener("BackgroundDoubleClicked", function() {
+     myDiagram.addDiagramListener("BackgroundDoubleClicked", function(e) {
         myDiagram.commandHandler.increaseZoom();
+        myDiagram.centerRect(new go.Rect(e.diagram.lastInput.documentPoint.x, e.diagram.lastInput.documentPoint.y, 10, 10));
      });
 
     //context menu for each Node
