@@ -964,7 +964,13 @@
 		.tablesorter({
 			theme: 'blue',
 			widthFixed: true,
-			widgets: ['zebra']
+			widgets: ['zebra'],
+			sortList: [[1,1]],
+			headers: {
+				0: {
+					sorter: false
+				}
+			}
 		})
 
 
