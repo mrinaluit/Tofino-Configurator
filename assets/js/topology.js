@@ -10,6 +10,7 @@ function init() {
                 maxScale: 3.0,
                 minScale: 0.4,
                 click: onSelectionChanged,
+                initialAutoScale: go.Diagram.Uniform,
                 // when a node is selected, show popup 
                 nodeSelectionAdornmentTemplate:
                     $(go.Adornment, "Auto",
