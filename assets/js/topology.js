@@ -716,19 +716,18 @@ function onSelectionChanged(e) {
   // Update the HTML elements of the currently selected node, if any
   function updateProperties(data) {
     if (data === null) {
-      document.getElementById("activity-detail").style.display = "none";
-      document.getElementById("stats-sub-sections").style.display = "block";
+      document.getElementById("col-stats").classList.remove('show-detail');
       // document.getElementById("Chassis").innerHTML = "";
       // document.getElementById("Status").innerHTML = "";
     } else if(data.Status == "Error") {
-      document.getElementById("activity-detail").style.display = "block";
-      document.getElementById("stats-sub-sections").style.display = "none";
+      document.getElementById("col-stats").scrollTop = 0;
+      document.getElementById("col-stats").classList.add('show-detail');
       // document.getElementById("Chassis").innerHTML = data.Chassis || "";
       // document.getElementById("Status").innerHTML = '<img src="assets/img/LED-red@2x.png" width="20" height="20">' || "";
     }
     else if(data.Status == "Warning") {
-     document.getElementById("activity-detail").style.display = "block";
-     document.getElementById("stats-sub-sections").style.display = "none";
+      document.getElementById("col-stats").scrollTop = 0;
+      document.getElementById("col-stats").classList.add('show-detail');
      // document.getElementById("Chassis").innerHTML = data.Chassis || "";
      // document.getElementById("Status").innerHTML = '<img src="assets/img/LED-yellow@2x.png" width="20" height="20">' || "";
     }
