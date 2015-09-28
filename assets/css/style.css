@@ -5772,7 +5772,9 @@ body {
     -ms-user-select: none;
     user-select: none;
 }
-
+.button-white {
+  cursor: pointer;
+}
 /*
   
   H E A D E R
@@ -6155,7 +6157,8 @@ input[type="text"].i-search {
   cursor: pointer; }
 
 .main-content {
-  background: #FFFFFF; }
+  background: #FFFFFF;
+  height: 100%; }
   .main-content .main-content-titlebar {
     border-bottom-color: #BFBFC2;
     border-top: 1px solid #BFBFC2;
@@ -6207,6 +6210,9 @@ input[type="text"].i-search {
         background-image: url("../img/icon-topology.png"); }
       .main-content .main-content-titlebar #view-dropdown ul.dropdown-menu li#button-view-map a {
         background-image: url("../img/icon-map.png"); }
+  .main-content .view-table {
+    height: 100%;
+  }
   .main-content .view-table thead > tr > th {
     border: none;
     box-shadow: none;
@@ -6220,11 +6226,13 @@ input[type="text"].i-search {
   .main-content .view-table tbody > tr > td {
     border-top-color: #DBDBDD;
     padding: 14px;
-    border-left: 1px solid #E0E0E0; }
+    border-left: 1px solid #E0E0E0;
+    vertical-align: middle; }
     .main-content .view-table tbody > tr > td:first-child {
       border-left: none; }
   .main-content .view-table .table {
-    margin: 0; }
+    margin: 0; 
+    height: 100%; }
   .main-content .view-table tfoot {
     padding: 0;
     background: #F7F7F7;
