@@ -6125,7 +6125,8 @@ input[type="text"].i-search {
 
 #col-stats {
   height: 100%;
-  overflow: auto; }
+  overflow-y: auto;
+  overflow-x: hidden; }
   #col-stats.show-detail {
     overflow: hidden;
   }
