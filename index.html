@@ -97,7 +97,7 @@
 
 			<div id="activity-detail" class="sub-sec disappear">
 				<div class="sub-sec-title">
-					<div style="position:absolute; top:15px; left:15px;">< Back</div>
+					<div style="cursor:pointer; text-decoration:underline; position:absolute; top:15px; left:15px;" onclick="document.getElementById('col-stats').classList.remove('show-detail');">&lsaquo; Back</div>
 					<h3 style="text-align:center;">Activity Detail</h3>
 				</div>
 				<div class="sub-sec-content" style="overflow:auto; position:absolute; top:54px; left:0; right:0; bottom:0; padding-bottom:61px;">
@@ -1118,11 +1118,11 @@ $(function(){
 
 });
 
-function maximize () {
+function maximize (size) {
 	var midX = myDiagram.viewportBounds.x + myDiagram.viewportBounds.width/2 - 5;
 	var midY = myDiagram.viewportBounds.y + myDiagram.viewportBounds.height/2 - 5;
 	var body = document.body
-	if (body.classList.contains('max-topology')) {
+	if (size === 'minimize' || body.classList.contains('max-topology')) {
 		body.classList.remove('max-topology');
 	} else {
 		body.classList.add('max-topology');

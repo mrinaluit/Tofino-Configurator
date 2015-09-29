@@ -16,7 +16,7 @@ function init() {
                     $(go.Adornment, "Auto",
                         new go.Binding("locationSpot", "key", function(key, node) {
                                 var widthOfTheAdornment = 300;
-                                var heightOfTheAdornment = 500;
+                                var heightOfTheAdornment = 300;
                                 if ( node.location.x < (myDiagram.viewportBounds.x + widthOfTheAdornment) ) {
                                     if ( node.location.y > (myDiagram.viewportBounds.y + myDiagram.viewportBounds.height - heightOfTheAdornment) ) {
                                         return go.Spot.BottomLeft;
@@ -225,6 +225,22 @@ function init() {
                                 ),
                                 $(go.Panel, "Vertical",
                                     { margin: new go.Margin(10, 10, 10, 5), alignment: go.Spot.Right, width: 160,background:null},
+                                    $(go.TextBlock, {
+                                        margin: 0,
+                                        alignment: go.Spot.Left,
+                                        stroke: "black",
+                                        font: "3em 'Source Sans Pro',sans-serif",
+                                        text:"97"
+                                    }),
+                                    $(go.TextBlock, {
+                                        margin: new go.Margin(3, 0, 0, 0),
+                                        alignment: go.Spot.Left,
+                                        stroke: "#031c36",
+                                        font: "bold 0.8em 'Source Sans Pro',sans-serif bold",
+                                        text: "AVG LATENCY (ms)"
+                                    }),
+                                    //Space
+                                    $(go.Panel, "Auto",{ margin:0, width:320, height:30}), 
                                     $(go.TextBlock, 
                                         {
                                             margin: 0,
@@ -241,22 +257,6 @@ function init() {
                                         stroke: "#031c36",
                                         font: "bold 0.8em 'Source Sans Pro',sans-serif bold",
                                         text: "UPTIME (%)"
-                                    }),
-                                    //Space
-                                    $(go.Panel, "Auto",{ margin:0, width:320, height:30}), 
-                                    $(go.TextBlock, {
-                                        margin: 0,
-                                        alignment: go.Spot.Left,
-                                        stroke: "black",
-                                        font: "3em 'Source Sans Pro',sans-serif",
-                                        text:"97"
-                                    }),
-                                    $(go.TextBlock, {
-                                        margin: new go.Margin(3, 0, 0, 0),
-                                        alignment: go.Spot.Left,
-                                        stroke: "#031c36",
-                                        font: "bold 0.8em 'Source Sans Pro',sans-serif bold",
-                                        text: "AVG LATENCY (ms)"
                                     })
                                 )
                             ),
@@ -742,19 +742,21 @@ function onSelectionChanged(e) {
   // Update the HTML elements of the currently selected node, if any
   function updateProperties(data) {
     if (data === null) {
-      document.getElementById("col-stats").classList.remove('show-detail');
-      // document.getElementById("Chassis").innerHTML = "";
-      // document.getElementById("Status").innerHTML = "";
+        document.getElementById("col-stats").classList.remove('show-detail');
+        // document.getElementById("Chassis").innerHTML = "";
+        // document.getElementById("Status").innerHTML = "";
     } else if(data.Status == "Error") {
-      document.getElementById("col-stats").scrollTop = 0;
-      document.getElementById("col-stats").classList.add('show-detail');
-      // document.getElementById("Chassis").innerHTML = data.Chassis || "";
-      // document.getElementById("Status").innerHTML = '<img src="assets/img/LED-red@2x.png" width="20" height="20">' || "";
+        maximize('minimize');
+        document.getElementById("col-stats").scrollTop = 0;
+        document.getElementById("col-stats").classList.add('show-detail');
+        // document.getElementById("Chassis").innerHTML = data.Chassis || "";
+        // document.getElementById("Status").innerHTML = '<img src="assets/img/LED-red@2x.png" width="20" height="20">' || "";
     }
     else if(data.Status == "Warning") {
-      document.getElementById("col-stats").scrollTop = 0;
-      document.getElementById("col-stats").classList.add('show-detail');
-     // document.getElementById("Chassis").innerHTML = data.Chassis || "";
-     // document.getElementById("Status").innerHTML = '<img src="assets/img/LED-yellow@2x.png" width="20" height="20">' || "";
+        maximize('minimize');
+        document.getElementById("col-stats").scrollTop = 0;
+        document.getElementById("col-stats").classList.add('show-detail');
+        // document.getElementById("Chassis").innerHTML = data.Chassis || "";
+        // document.getElementById("Status").innerHTML = '<img src="assets/img/LED-yellow@2x.png" width="20" height="20">' || "";
     }
   }
