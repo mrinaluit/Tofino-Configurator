@@ -14,6 +14,32 @@ function init() {
                 // when a node is selected, show popup 
                 nodeSelectionAdornmentTemplate:
                     $(go.Adornment, "Auto",
+                        new go.Binding("locationSpot", "key", function(key, node) {
+                                var widthOfTheAdornment = 300;
+                                var heightOfTheAdornment = 500;
+                                if ( node.location.x < (myDiagram.viewportBounds.x + widthOfTheAdornment) ) {
+                                    if ( node.location.y > (myDiagram.viewportBounds.y + myDiagram.viewportBounds.height - heightOfTheAdornment) ) {
+                                        return go.Spot.BottomLeft;
+                                    } else if ( node.location.y < (myDiagram.viewportBounds.y + heightOfTheAdornment) ) {
+                                        return go.Spot.TopLeft;
+                                    } else {
+                                        return go.Spot.Left;
+                                    }
+                                } else if ( node.location.x > (myDiagram.viewportBounds.x + myDiagram.viewportBounds.width - widthOfTheAdornment) ) {
+                                    if ( node.location.y > (myDiagram.viewportBounds.y + myDiagram.viewportBounds.height - heightOfTheAdornment) ) {
+                                        return go.Spot.BottomRight;
+                                    } else if ( node.location.y < (myDiagram.viewportBounds.y + heightOfTheAdornment) ) {
+                                        return go.Spot.TopRight;
+                                    } else {
+                                        return go.Spot.Right;
+                                    }
+                                } else if (node.location.y > (myDiagram.viewportBounds.y + myDiagram.viewportBounds.height - heightOfTheAdornment) ) {
+                                    return go.Spot.Bottom;
+                                } else if ( node.location.y < (myDiagram.viewportBounds.y + heightOfTheAdornment) ) {
+                                    return go.Spot.Top;
+                                }
+                            }
+                        ),
                         $(go.Shape,
                             "RoundedRectangle", 
                             {stroke: "#d3d8db",fill: "white", width: 320,margin:50},
@@ -257,7 +283,7 @@ function init() {
 
      myDiagram.addDiagramListener("BackgroundDoubleClicked", function(e) {
         myDiagram.commandHandler.increaseZoom();
-        myDiagram.centerRect(new go.Rect(e.diagram.lastInput.documentPoint.x, e.diagram.lastInput.documentPoint.y, 10, 10));
+        myDiagram.centerRect(new go.Rect(e.diagram.lastInput.documentPoint.x - 5, e.diagram.lastInput.documentPoint.y - 5, 10, 10));
      });
 
     //context menu for each Node
