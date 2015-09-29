@@ -24,6 +24,7 @@
 
 <!--   H E A D E R   -->
 
+<body>
 
 
 <header>
@@ -606,6 +607,7 @@
 						<div class="zoom-controls">
 							<div class="noselect control zoom-in-icon" onclick="myDiagram.commandHandler.increaseZoom(3/2)"></div>
 							<div class="noselect control zoom-out-icon" onclick="myDiagram.commandHandler.decreaseZoom(2/3)"></div>
+							<div class="noselect control" onclick="maximize()">o</div>
            					<!-- <input id="ZoomToFit" type="button" onclick="myDiagram.commandHandler.zoomToFit()" value="[]" class="control" /> -->
        					</div>
 					</div><!-- view-topology -->
@@ -914,7 +916,8 @@
 	<link rel="stylesheet" href="assets/css/jquery.tablesorter.pager.css">
 	<script src="assets/js/jquery.tablesorter.pager.js"></script>
 
-	<script id="js">$(function(){
+<script id="js">
+$(function(){
 
 	// **********************************
 	//  Description of ALL pager options
@@ -1114,6 +1117,19 @@
 		});
 
 });
+
+function maximize () {
+	var midX = myDiagram.viewportBounds.x + myDiagram.viewportBounds.width/2 - 5;
+	var midY = myDiagram.viewportBounds.y + myDiagram.viewportBounds.height/2 - 5;
+	var body = document.body
+	if (body.classList.contains('max-topology')) {
+		body.classList.remove('max-topology');
+	} else {
+		body.classList.add('max-topology');
+	}
+	myDiagram.rebuildParts();
+	myDiagram.centerRect( new go.Rect(midX, midY, 10, 10) );
+}
 </script>
 
 

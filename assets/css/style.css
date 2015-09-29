@@ -6369,3 +6369,22 @@ th.tablesorter-header.tablesorter-headerAsc .tablesorter-header-inner::after {
 th.tablesorter-header.tablesorter-headerDesc .tablesorter-header-inner::after {
   content: "▼";
 }
+
+.max-topology header,
+.max-topology footer {
+  display: none;
+}
+.max-topology #sec-main-content {
+  top: 0;
+  bottom: 0;
+}
+.view-topology {
+  transition: top 0.2s, right 0.2s, bottom 0.2s, left 0.2s;  
+}
+.max-topology .view-topology {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
