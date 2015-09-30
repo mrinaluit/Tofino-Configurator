@@ -42,7 +42,7 @@ function init() {
                         ),
                         $(go.Shape,
                             "RoundedRectangle", 
-                            {stroke: "#d3d8db",fill: "white", width: 320,margin:50},
+                            {stroke: "#d3d8db",fill: "white", width: 320,margin:new go.Margin(50, 0, 0, 120)},
                             new go.Binding("height", "Status", function(c) {
                                 switch (c) {
                                     case "Ok": 
